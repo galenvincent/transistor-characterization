@@ -1,15 +1,15 @@
-function [DD,ax] = mobility_map(folderPath,max_mob)
+function [DD,ax] = mobility_map_n(folderPath,max_mob)
 
 
 % Build directory of txt files
 
 ad=pwd;
 cd(folderPath)
-DD=dir('*.txt');
+DD=dir('*.iv');
 cd(ad);
 
 for i =1:length(DD)
-DD(i).path=[DD(i).folder, '/', DD(i).name];
+    DD(i).path= fullfile(folderPath, DD(i).name);
 end
 
 % Map channel lengths and positions to directory and calculate mobilities
@@ -18,7 +18,7 @@ MM = zeros(7,9);
 VT_mat = zeros(7,9);
 
 DE = 3.9; % Dielectric constant of SiO2
-vg_lims = [40,79];
+vg_lims = [50,70];
 L_vec = [5,10,20,25,50,80,100];
 L2N = struct('A',1,...
              'B',2,...
@@ -28,16 +28,25 @@ L2N = struct('A',1,...
              'F',6,...
              'G',7,...
              'H',8,...
-             'J',9);
+             'J',9,...
+             'K',1,...
+             'L',2,...
+             'M',3,...
+             'N',4,...
+             'P',5,...
+             'Q',6,...
+             'R',7,...
+             'S',8,...
+             'T',9);
 
 for i = 1:length(DD)
     
-DD(i).ChanRow = str2num(DD(i).name(end-4));
-DD(i).ChanLetter = DD(i).name(end-5);
+DD(i).ChanRow = str2num(DD(i).name(end-3));
+DD(i).ChanLetter = DD(i).name(end-4);
 DD(i).ChanCol = L2N.(DD(i).ChanLetter); % This is a wizard-level MATLAB trick to get around the lack of dictionaries
-DD(i).ChanLen = L_vec(DD(i).ChanRow-2)*1E-6;
+DD(i).ChanLen = L_vec(DD(i).ChanRow)*1E-6;
 
-[mob, VT, vg_mat, id_mat, fit_fun] = calcMobIV(DD(i).path,200E-9,1E-3,DD(i).ChanLen,DE,vg_lims);
+[mob, VT, vg_mat, id_mat, fit_fun] = calcMobIV_n(DD(i).path,200E-9,1E-3,DD(i).ChanLen,DE,vg_lims);
 
 DD(i).mob=mob;
 DD(i).vt=VT;

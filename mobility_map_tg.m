@@ -8,7 +8,7 @@ DD=dir('*.iv');
 cd(ad);
 
 for i =1:length(DD)
-    DD(i).path = fullfile(DD(i).folder, DD(i).name);
+    DD(i).path = fullfile(folderPath, DD(i).name);
 end
 
 % Map channel lengths and positions to directory and calculate mobilities
