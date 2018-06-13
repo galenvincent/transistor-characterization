@@ -1,3 +1,5 @@
+% Function to produce a mobility map for a full chip of channels
+
 function [DD,ax] = mobility_map_p(folderPath,chiptype,vg_lims,max_mob)
 % If chiptype = 2, this means you have the chip with increasing device width
 % If chiptype = 1, then device width = 1000 um for the whole chip
