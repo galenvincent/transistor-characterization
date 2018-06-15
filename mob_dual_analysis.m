@@ -109,13 +109,14 @@ for i = 1:nchan
     for j = 1:pos_loop_stop
         vgRange = DD(i).posSweep_vg{j:(j+vg_limit-1),1};
         idRange = DD(i).posSweep_id{j:(j+vg_limit-1),1};
-        [mob, vt, mfun] = fitSatMob(vgRange, idRange, cap, DD(i).ChanWid, DD(i).ChanLen);
+        [mob, vt, mfun, M] = fitSatMob(vgRange, idRange, cap, DD(i).ChanWid, DD(i).ChanLen);
         DD(i).posMobSweep(j) = mob;
         DD(i).posVtSweep(j) = vt;
         if mob > DD(i).posMaxMob
             DD(i).posMaxMob = mob;
             DD(i).posVt = vt;
             DD(i).posFun = mfun;
+            DD(i).posM = M;
         end
     end
     
@@ -128,7 +129,7 @@ for i = 1:nchan
     for j = length(DD(i).negSweep_vg{:,1}):-1:neg_loop_stop
         vgRange = DD(i).negSweep_vg{j:-1:(j-vg_limit+1),1};
         idRange = DD(i).negSweep_id{j:-1:(j-vg_limit+1),1};
-        [mob, vt, mfun] = fitSatMob(vgRange, idRange, cap, DD(i).ChanWid, DD(i).ChanLen);
+        [mob, vt, mfun, M] = fitSatMob(vgRange, idRange, cap, DD(i).ChanWid, DD(i).ChanLen);
         DD(i).negMobSweep(index) = mob;
         DD(i).negVtSweep(index) = vt;
         index = index + 1;
@@ -136,6 +137,7 @@ for i = 1:nchan
             DD(i).negMaxMob = mob;
             DD(i).negVt = vt;
             DD(i).negFun = mfun;
+            DD(i).negM = M;
         end
     end
 end
@@ -152,9 +154,37 @@ for i = 1:nchan
     DD(i).negCurveFactor = neg_area/neg_ideal_area; 
 end
 
+%% Calculate the Hysterisis factor for each channel
+DD = calc_hysterisis(DD);
+
+%% Calculate the r factor (Hyun Ho Choi paper)
+for i = 1:nchan
+    vgmax = DD(i).negSweep_vg{end,1};
+    idmax = DD(i).negSweep_id{end,1};
+    
+    for j = 1:length(DD(i).negSweep_vg{:,1})
+        if DD(i).negSweep_vg{j,1} == 0
+            neg_zero_ind = j;
+            break
+        end
+    end
+    for j = 1:length(DD(i).posSweep_vg{:,1})
+        if DD(i).posSweep_vg{j,1} == 0
+            pos_zero_ind = j;
+            break
+        end
+    end
+    
+    pos_id_0 = abs(DD(i).posSweep_id{pos_zero_ind,1});
+    neg_id_0 = abs(DD(i).negSweep_id{neg_zero_ind,1});
+    
+    DD(i).posRFactor=(((sqrt(idmax)-sqrt(pos_id_0))/vgmax)^2)/(DD(i).posM^2);
+    DD(i).negRFactor=(((sqrt(idmax)-sqrt(neg_id_0))/vgmax)^2)/(DD(i).negM^2);  
 end
 
-function [Mobility,VT,mfun] = fitSatMob(VGRange,IDRange,Cap,W,L)
+end
+
+function [Mobility,VT,mfun,M] = fitSatMob(VGRange,IDRange,Cap,W,L)
 
 Y= sqrt(abs(IDRange));
 K = (W*Cap)/(2*L);
