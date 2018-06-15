@@ -84,13 +84,13 @@ for i = 1:nchan
     neg_diff = diff(table2array(DD(i).negSweep_id));
     
     for j = 1:length(pos_diff)
-        if pos_diff(j) > 0 || DD(i).posSweep_id{j,1} < 0
+        if (pos_diff(j) > 0 || DD(i).posSweep_id{j,1} < 0) && j > vg_limit
             pos_stop = j;
             break
         end
     end
     for j = length(neg_diff):-1:1
-        if neg_diff(j) < 0 || DD(i).negSweep_id{j,1} < 0
+        if (neg_diff(j) < 0 || DD(i).negSweep_id{j,1} < 0) && (length(neg_diff)-j) > vg_limit
             neg_stop = j;
             break
         end
@@ -183,6 +183,10 @@ for i = 1:nchan
 end
 
 end
+
+% Next... create the perfect data set and see what happens.
+% Also, think about differentiating between the right curvature and left
+% curvature of the transfer curve
 
 function [Mobility,VT,mfun,M] = fitSatMob(VGRange,IDRange,Cap,W,L)
 
