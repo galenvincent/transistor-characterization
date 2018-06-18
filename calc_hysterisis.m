@@ -19,11 +19,13 @@ for i = 1:nchan
     big_area = max([neg_area pos_area]);
     small_area = min([neg_area pos_area]);
 
-    area_diff = big_area-small_area;
-
-    perc_area_diff = area_diff/big_area;
+    area_ratio = small_area/big_area;
     
-    dd(i).hystFactor = perc_area_diff;
+    %area_diff = big_area-small_area;
+
+    %perc_area_diff = area_diff/big_area;
+    
+    dd(i).hystFactor = area_ratio;
 end
 
 end

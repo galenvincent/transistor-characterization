@@ -1,7 +1,11 @@
 % function to analyze how to mobility changes over the course of a full
 % transfer curve, and how the threshold voltage changes with it
 
-function DD = mob_dual_analysis(folderPath,vg_limit)
+function DD = mob_dual_analysis(folderPath,vg_limit,type)
+
+% type 1 = 180613gbv or later
+% type 2 = 180613gbv1,4,5
+% type 3 = 180613gbv2
 
 %% Enter constants
 ad=pwd;
@@ -10,11 +14,25 @@ DD=dir('*.iv');
 cd(ad);
 
 % below is in um
-% CAREFUL - you likely need to change this
-L_vec = [1,2,5,10,20,25,50,80,100]; % Vector of channel lengths
-W_vec = [400,400,400,500,500,800,800,1000,1000]; % Vector of channel widths
+switch type
+    case 2
+        L_vec = [1,2,5,10,20,25,50,80,100]; % Vector of channel lengths
+        W_vec = [400,400,400,500,500,800,800,1000,1000]; % Vector of channel widths
+        d_gate = 200E-9; %(180606gbv)
+        
+    case 3
+        L_vec = [1,2,5,10,20,25,50,80,100]; % Vector of channel lengths
+        W_vec = [1000,1000,1000,1000,1000,1000,1000,1000,1000]; % Vector of channel widths
+        d_gate = 200E-9; %(180606gbv)
+        
+    case 1
+        L_vec = [1,5,5,10,20,25,50,80,100]; % Vector of channel lengths
+        W_vec = [1000,1000,1000,1000,1000,1000,1000,1000,1000]; % Vector of channel widths
+        d_gate = 57E-9; %(180613gbv)
+    otherwise
+        print('Enter valid type');
+end
 
-d_gate = 200E-9; % Thickness of the gate
 DE = 3.9; % Dielectric constant of SiO2
 cap = DE * 8.854e-12 / d_gate / (100^2); % capacitance w/ correct units
 
