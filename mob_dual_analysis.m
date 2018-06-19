@@ -4,8 +4,8 @@
 function DD = mob_dual_analysis(folderPath,vg_limit,type)
 
 % type 1 = 180613gbv or later
-% type 2 = 180613gbv1,4,5
-% type 3 = 180613gbv2
+% type 2 = 180606gbv1,4,5
+% type 3 = 180606gbv2
 
 %% Enter constants
 ad=pwd;

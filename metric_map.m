@@ -1,7 +1,7 @@
 % Function to compare the different 5 metrics across each of the channels
 % of each wafer. Looking at both forward and reverse sweeps
 
-function metric_map(dd)
+function dd = metric_map(dd)
 metric_map_help(dd);
 nchan = length(dd);
 

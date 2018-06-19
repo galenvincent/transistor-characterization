@@ -1,10 +1,10 @@
 % Function to average the important metrics from the analysis function
 
-function [mob_stats, vt_stats, curv_stats, hyst_stats, r_stats] = calc_avg(dd,rows)
+function dd_stats = calc_avg(dd,rows)
 % rows = vector holding the row numbers you would like to average
 % rows = 0 in order to average the whole thing
 
-metric_map(dd);
+dd = metric_map(dd);
 
 nchan = length(dd);
 indToAvg = [];
@@ -19,28 +19,28 @@ for i = 1:nchan
    end
 end
 
-mob_stats.posMean = mean([dd(indToAvg).posMaxMob]);
-mob_stats.posSTD = std([dd(indToAvg).posMaxMob]);
-mob_stats.negMean = mean([dd(indToAvg).negMaxMob]);
-mob_stats.negSTD = std([dd(indToAvg).negMaxMob]);
+dd_stats.mob.posMean = mean([dd(indToAvg).posMaxMob]);
+dd_stats.mob.posSTD = std([dd(indToAvg).posMaxMob]);
+dd_stats.mob.negMean = mean([dd(indToAvg).negMaxMob]);
+dd_stats.mob.negSTD = std([dd(indToAvg).negMaxMob]);
 
-vt_stats.posMean = mean([dd(indToAvg).posVt]);
-vt_stats.posSTD = std([dd(indToAvg).posVt]);
-vt_stats.negMean = mean([dd(indToAvg).negVt]);
-vt_stats.negSTD = std([dd(indToAvg).negVt]);
+dd_stats.vt.posMean = mean([dd(indToAvg).posVt]);
+dd_stats.vt.posSTD = std([dd(indToAvg).posVt]);
+dd_stats.vt.negMean = mean([dd(indToAvg).negVt]);
+dd_stats.vt.negSTD = std([dd(indToAvg).negVt]);
 
-curv_stats.posMean = mean([dd(indToAvg).posCurveFactor]);
-curv_stats.posSTD = std([dd(indToAvg).posCurveFactor]);
-curv_stats.negMean = mean([dd(indToAvg).negCurveFactor]);
-curv_stats.negSTD = std([dd(indToAvg).negCurveFactor]);
+dd_stats.curv.posMean = mean([dd(indToAvg).posCurveFactor]);
+dd_stats.curv.posSTD = std([dd(indToAvg).posCurveFactor]);
+dd_stats.curv.negMean = mean([dd(indToAvg).negCurveFactor]);
+dd_stats.curv.negSTD = std([dd(indToAvg).negCurveFactor]);
 
-hyst_stats.Mean = mean([dd(indToAvg).hystFactor]);
-hyst_stats.STD = std([dd(indToAvg).hystFactor]);
+dd_stats.hyst.Mean = mean([dd(indToAvg).hystFactor]);
+dd_stats.hyst.STD = std([dd(indToAvg).hystFactor]);
 
-r_stats.posMean = mean([dd(indToAvg).posRFactor]);
-r_stats.posSTD = std([dd(indToAvg).posRFactor]);
-r_stats.negMean = mean([dd(indToAvg).negRFactor]);
-r_stats.negSTD = std([dd(indToAvg).negRFactor]);
+dd_stats.r.posMean = mean([dd(indToAvg).posRFactor]);
+dd_stats.r.posSTD = std([dd(indToAvg).posRFactor]);
+dd_stats.r.negMean = mean([dd(indToAvg).negRFactor]);
+dd_stats.r.negSTD = std([dd(indToAvg).negRFactor]);
 
 
 end
