@@ -8,16 +8,16 @@ function dd = calc_hysterisis(dd)
 nchan = length(dd);
 
 for i = 1:nchan
-   vg_pos = dd(i).posSweep_vg{:,1};
-   vg_neg = dd(i).negSweep_vg{:,1};
-   id_pos_sqrt = sqrt(abs(dd(i).posSweep_id{:,1}));
-   id_neg_sqrt = sqrt(abs(dd(i).negSweep_id{:,1}));
+   vg_back = dd(i).backward_vg{:,1};
+   vg_for = dd(i).forward_vg{:,1};
+   id_back_sqrt = sqrt(abs(dd(i).backward_id{:,1}));
+   id_for_sqrt = sqrt(abs(dd(i).forward_id{:,1}));
 
-    neg_area = abs(trapz(vg_neg,id_neg_sqrt));  
-    pos_area = abs(trapz(vg_pos,id_pos_sqrt));
+    for_area = abs(trapz(vg_for,id_for_sqrt));  
+    back_area = abs(trapz(vg_back,id_back_sqrt));
 
-    big_area = max([neg_area pos_area]);
-    small_area = min([neg_area pos_area]);
+    big_area = max([for_area back_area]);
+    small_area = min([for_area back_area]);
 
     area_ratio = small_area/big_area;
     

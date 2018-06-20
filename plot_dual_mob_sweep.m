@@ -7,9 +7,9 @@ figure('Name','Positive Sweep')
 hold on
 yyaxis left
 ylabel('Mobility (cm^2 V^{-1} s^{-1})')
-plot(DD(devnum).posMobSweep)
+plot(DD(devnum).backMobSweep)
 yyaxis right
-plot(DD(devnum).posVtSweep)
+plot(DD(devnum).backVtSweep)
 ylabel('V_t (V)')
 xlabel('Index')
 legend('Mobility','Threshold Voltage')
@@ -17,10 +17,10 @@ legend('Mobility','Threshold Voltage')
 figure('Name','Negative Sweep')
 hold on
 yyaxis left
-plot(DD(devnum).negMobSweep)
+plot(DD(devnum).forMobSweep)
 ylabel('Mobility (cm^2 V^{-1} s^{-1})')
 yyaxis right
-plot(DD(devnum).negVtSweep)
+plot(DD(devnum).forVtSweep)
 ylabel('V_t (V)')
 xlabel('Index')
 legend('Mobility','Threshold Voltage')

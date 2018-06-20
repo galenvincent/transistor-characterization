@@ -19,28 +19,28 @@ for i = 1:nchan
    end
 end
 
-dd_stats.mob.posMean = mean([dd(indToAvg).posMaxMob]);
-dd_stats.mob.posSTD = std([dd(indToAvg).posMaxMob]);
-dd_stats.mob.negMean = mean([dd(indToAvg).negMaxMob]);
-dd_stats.mob.negSTD = std([dd(indToAvg).negMaxMob]);
+dd_stats.mob.backMean = mean([dd(indToAvg).backMaxMob]);
+dd_stats.mob.backSTD = std([dd(indToAvg).backMaxMob]);
+dd_stats.mob.forMean = mean([dd(indToAvg).forMaxMob]);
+dd_stats.mob.forSTD = std([dd(indToAvg).forMaxMob]);
 
-dd_stats.vt.posMean = mean([dd(indToAvg).posVt]);
-dd_stats.vt.posSTD = std([dd(indToAvg).posVt]);
-dd_stats.vt.negMean = mean([dd(indToAvg).negVt]);
-dd_stats.vt.negSTD = std([dd(indToAvg).negVt]);
+dd_stats.vt.backMean = mean([dd(indToAvg).backVt]);
+dd_stats.vt.backSTD = std([dd(indToAvg).backVt]);
+dd_stats.vt.forMean = mean([dd(indToAvg).forVt]);
+dd_stats.vt.forSTD = std([dd(indToAvg).forVt]);
 
-dd_stats.curv.posMean = mean([dd(indToAvg).posCurveFactor]);
-dd_stats.curv.posSTD = std([dd(indToAvg).posCurveFactor]);
-dd_stats.curv.negMean = mean([dd(indToAvg).negCurveFactor]);
-dd_stats.curv.negSTD = std([dd(indToAvg).negCurveFactor]);
+dd_stats.curv.backMean = mean([dd(indToAvg).backCurveFactor]);
+dd_stats.curv.backSTD = std([dd(indToAvg).backCurveFactor]);
+dd_stats.curv.forMean = mean([dd(indToAvg).forCurveFactor]);
+dd_stats.curv.forSTD = std([dd(indToAvg).forCurveFactor]);
 
 dd_stats.hyst.Mean = mean([dd(indToAvg).hystFactor]);
 dd_stats.hyst.STD = std([dd(indToAvg).hystFactor]);
 
-dd_stats.r.posMean = mean([dd(indToAvg).posRFactor]);
-dd_stats.r.posSTD = std([dd(indToAvg).posRFactor]);
-dd_stats.r.negMean = mean([dd(indToAvg).negRFactor]);
-dd_stats.r.negSTD = std([dd(indToAvg).negRFactor]);
+dd_stats.r.backMean = mean([dd(indToAvg).backRFactor]);
+dd_stats.r.backSTD = std([dd(indToAvg).backRFactor]);
+dd_stats.r.forMean = mean([dd(indToAvg).forRFactor]);
+dd_stats.r.forSTD = std([dd(indToAvg).forRFactor]);
 
 
 end

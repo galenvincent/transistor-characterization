@@ -2,12 +2,12 @@
 % forward and reverse sweep. Use the output of the calc_max_mob() function
 % to plot
 
-function [ax, ax2] = plot_dual_tcurve_fit(dd,devNums,type)
+function [ax, ax2] = plot_dual_tcurve_fit(dd,devNums,semiType)
 %type = 'p' or 'n' based on the device type
 
-if abs(dd(devNums).posVt) > 1000
+if abs(dd(devNums).backVt) > 1000
     fprintf('SD Short - Cannot plot for dev #%i \n',devNums);
-elseif abs(dd(devNums).negVt) > 1000
+elseif abs(dd(devNums).backVt) > 1000
     fprintf('SD Short - Cannot plot for dev #%i \n',devNums);
 else
     f=figure;
@@ -16,19 +16,19 @@ else
     
     for d = devNums
         
-        posfit = dd(d).posFun;
-        negfit = dd(d).negFun;
+        backfit = dd(d).backFun;
+        forfit = dd(d).forFun;
         
         vg = dd(d).vg{:,1};
         id = dd(d).id{:,1};
         
         ax2 = plotyy(vg,sqrt(abs(id)),vg,abs(id),'plot','semilogy');
-        if type == 'n'
-            fplot(ax,@(x) sqrt(-posfit(x)),[dd(d).posVt,max(vg)],'--k','LineWidth',1);
-            fplot(ax,@(x) sqrt(-negfit(x)),[dd(d).negVt,max(vg)],'--k','LineWidth',1);
-        elseif type == 'p'
-            fplot(ax,@(x) sqrt(-posfit(x)),[min(vg),dd(d).posVt],'--k','LineWidth',1);
-            fplot(ax,@(x) sqrt(-negfit(x)),[min(vg),dd(d).negVt],'--k','LineWidth',1);
+        if semiType == 'n'
+            fplot(ax,@(x) sqrt(-backfit(x)),[dd(d).backVt,max(vg)],'--k','LineWidth',1);
+            fplot(ax,@(x) sqrt(-forfit(x)),[dd(d).forVt,max(vg)],'--k','LineWidth',1);
+        elseif semiType == 'p'
+            fplot(ax,@(x) sqrt(-backfit(x)),[min(vg),dd(d).backVt],'--k','LineWidth',1);
+            fplot(ax,@(x) sqrt(-forfit(x)),[min(vg),dd(d).forVt],'--k','LineWidth',1);
         end
     end
     

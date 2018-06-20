@@ -8,11 +8,11 @@ nchan = length(dd);
 numdeleted = 0;
 
 while true
-    row = input('Enter row # (1 to re-plot, 0 to exit): ');
-    if row == 0
+    row = input('Enter row # (0 to re-plot, -1 to exit): ');
+    if row == -1
         break
     end
-    if row == 1
+    if row == 0
        close;
        metric_map_help(dd);
        continue
@@ -35,63 +35,63 @@ end
 function metric_map_help(dd)
 nchan = length(dd);
 
-MMpos = zeros(9,9);
-MMneg = zeros(9,9);
+MMback = zeros(9,9);
+MMfor = zeros(9,9);
 
-VTpos = zeros(9,9);
-VTneg = zeros(9,9);
+VTback = zeros(9,9);
+VTfor = zeros(9,9);
 
 Hyst = zeros(9,9);
 
-Cpos = zeros(9,9);
-Cneg = zeros(9,9);
+Cback = zeros(9,9);
+Cfor = zeros(9,9);
 
-Rpos = zeros(9,9);
-Rneg = zeros(9,9);
+Rback = zeros(9,9);
+Rfor = zeros(9,9);
 
 for i = 1:nchan
-    MMpos(dd(i).ChanRow,dd(i).ChanCol) = dd(i).posMaxMob;
-    MMneg(dd(i).ChanRow,dd(i).ChanCol) = dd(i).negMaxMob;
+    MMback(dd(i).ChanRow,dd(i).ChanCol) = dd(i).backMaxMob;
+    MMfor(dd(i).ChanRow,dd(i).ChanCol) = dd(i).forMaxMob;
     
-    VTpos(dd(i).ChanRow,dd(i).ChanCol) = dd(i).posVt;
-    VTneg(dd(i).ChanRow,dd(i).ChanCol) = dd(i).negVt;
+    VTback(dd(i).ChanRow,dd(i).ChanCol) = dd(i).backVt;
+    VTfor(dd(i).ChanRow,dd(i).ChanCol) = dd(i).forVt;
     
     Hyst(dd(i).ChanRow,dd(i).ChanCol) = dd(i).hystFactor;
     
-    Cpos(dd(i).ChanRow,dd(i).ChanCol) = dd(i).posCurveFactor;
-    Cneg(dd(i).ChanRow,dd(i).ChanCol) = dd(i).negCurveFactor;
+    Cback(dd(i).ChanRow,dd(i).ChanCol) = dd(i).backCurveFactor;
+    Cfor(dd(i).ChanRow,dd(i).ChanCol) = dd(i).forCurveFactor;
     
-    Rpos(dd(i).ChanRow,dd(i).ChanCol) = dd(i).posRFactor;
-    Rneg(dd(i).ChanRow,dd(i).ChanCol) = dd(i).negRFactor;
+    Rback(dd(i).ChanRow,dd(i).ChanCol) = dd(i).backRFactor;
+    Rfor(dd(i).ChanRow,dd(i).ChanCol) = dd(i).forRFactor;
 end
 
-max_mob_pos = max(max(MMpos));
-max_mob_neg = max(max(MMneg));
-max_mob = max([max_mob_pos max_mob_neg]);
+max_mob_back = max(max(MMback));
+max_mob_for = max(max(MMfor));
+max_mob = max([max_mob_back max_mob_for]);
 
-max_vt_pos = max(max(VTpos));
-max_vt_neg = max(max(VTneg));
-min_vt_pos = min(min(VTpos));
-min_vt_neg = min(min(VTneg));
-max_vt = max([max_vt_pos max_vt_neg]);
-min_vt = min([min_vt_pos min_vt_neg]);
+max_vt_back = max(max(VTback));
+max_vt_for = max(max(VTfor));
+min_vt_back = min(min(VTback));
+min_vt_for = min(min(VTfor));
+max_vt = max([max_vt_back max_vt_for]);
+min_vt = min([min_vt_back min_vt_for]);
 
 max_hyst = max(max(Hyst));
 min_hyst = min(Hyst(Hyst>0));
 
-max_c_pos = max(max(Cpos));
-max_c_neg = max(max(Cneg));
-min_c_pos = min(Cpos(Cpos>0));
-min_c_neg = min(Cneg(Cneg>0));
-max_c = max([max_c_pos max_c_neg]);
-min_c = min([min_c_pos min_c_neg]);
+max_c_back = max(max(Cback));
+max_c_for = max(max(Cfor));
+min_c_back = min(Cback(Cback>0));
+min_c_for = min(Cfor(Cfor>0));
+max_c = max([max_c_back max_c_for]);
+min_c = min([min_c_back min_c_for]);
 
-max_r_pos = max(max(Rpos));
-max_r_neg = max(max(Rneg));
-min_r_pos = min(Rpos(Rpos>0));
-min_r_neg = min(Rneg(Rneg>0));
-max_r = max([max_r_pos max_r_neg]);
-min_r = min([min_r_pos min_r_neg]);
+max_r_back = max(max(Rback));
+max_r_for = max(max(Rfor));
+min_r_back = min(Rback(Rback>0));
+min_r_for = min(Rfor(Rfor>0));
+max_r = max([max_r_back max_r_for]);
+min_r = min([min_r_back min_r_for]);
 
 if isempty(strfind('ABCDEFGHIJ',dd(1).ChanLetter))
     xticks = 1:9;
@@ -104,39 +104,39 @@ end
 % Generate Heat Map
 figure('Name','Metric Map','Units', 'Normalized', 'OuterPosition', [0 0 1 1])%,'position', [0, 250, 800, 650])
 subplot(3,3,1)
-imagesc(MMpos,[0 max_mob]);
+imagesc(MMback,[0 max_mob]);
   ax = gca;
   set(ax, 'XTick', xticks,'YTick',[1:9], 'XTickLabel', xlabels,'TickLength',[0 0],'XAxisLocation', 'top');
 colorbar()
 ax.YDir='reverse';
-ax.Title.String = 'Mobility - Positive';
+ax.Title.String = 'Mobility - Backward';
 ax.FontSize=10;
 
 subplot(3,3,2)
-imagesc(MMneg,[0 max_mob]);
+imagesc(MMfor,[0 max_mob]);
   ax = gca;
   set(ax, 'XTick', xticks,'YTick',[1:9], 'XTickLabel', xlabels,'TickLength',[0 0],'XAxisLocation', 'top');
 colorbar()
 ax.YDir='reverse';
-ax.Title.String = 'Mobility - Negative';
+ax.Title.String = 'Mobility - Forward';
 ax.FontSize=10;
 
 subplot(3,3,3)
-imagesc(VTpos,[min_vt max_vt]);
+imagesc(VTback,[min_vt max_vt]);
   ax = gca;
   set(ax, 'XTick', xticks,'YTick',[1:9], 'XTickLabel', xlabels,'TickLength',[0 0],'XAxisLocation', 'top');
 colorbar()
 ax.YDir='reverse';
-ax.Title.String = 'Vt - Positive';
+ax.Title.String = 'Vt - Backward';
 ax.FontSize=10;
 
 subplot(3,3,4)
-imagesc(VTneg,[min_vt max_vt]);
+imagesc(VTfor,[min_vt max_vt]);
   ax = gca;
   set(ax, 'XTick', xticks,'YTick',[1:9], 'XTickLabel', xlabels,'TickLength',[0 0],'XAxisLocation', 'top');
 colorbar()
 ax.YDir='reverse';
-ax.Title.String = 'Vt - Negative';
+ax.Title.String = 'Vt - Forward';
 ax.FontSize=10;
 
 subplot(3,3,5)
@@ -149,38 +149,38 @@ ax.Title.String = 'Hysterisis (1 = good)';
 ax.FontSize=10;
 
 subplot(3,3,6)
-imagesc(Cpos,[min_c max_c]);
+imagesc(Cback,[min_c max_c]);
   ax = gca;
   set(ax, 'XTick', xticks,'YTick',[1:9], 'XTickLabel', xlabels,'TickLength',[0 0],'XAxisLocation', 'top');
 colorbar()
 ax.YDir='reverse';
-ax.Title.String = 'Curve - Positive (1 = good)';
+ax.Title.String = 'Curve - Backward (1 = good)';
 ax.FontSize=10;
 
 subplot(3,3,7)
-imagesc(Cneg,[min_c max_c]);
+imagesc(Cfor,[min_c max_c]);
   ax = gca;
   set(ax, 'XTick', xticks,'YTick',[1:9], 'XTickLabel', xlabels,'TickLength',[0 0],'XAxisLocation', 'top');
 colorbar()
 ax.YDir='reverse';
-ax.Title.String = 'Curve - Negative (1 = good)';
+ax.Title.String = 'Curve - Forward (1 = good)';
 ax.FontSize=10;
 
 subplot(3,3,8)
-imagesc(Rpos,[min_r max_r]);
+imagesc(Rback,[min_r max_r]);
   ax = gca;
   set(ax, 'XTick', xticks,'YTick',[1:9], 'XTickLabel', xlabels,'TickLength',[0 0],'XAxisLocation', 'top');
 colorbar()
 ax.YDir='reverse';
-ax.Title.String = 'R Factor - Positive (1 = good)';
+ax.Title.String = 'R Factor - Backward (1 = good)';
 ax.FontSize=10;
 
 subplot(3,3,9)
-imagesc(Rpos,[min_r max_r]);
+imagesc(Rback,[min_r max_r]);
   ax = gca;
   set(ax, 'XTick', xticks,'YTick',[1:9], 'XTickLabel', xlabels,'TickLength',[0 0],'XAxisLocation', 'top');
 colorbar()
 ax.YDir='reverse';
-ax.Title.String = 'R Factor - Negative (1 = good)';
+ax.Title.String = 'R Factor - Forward (1 = good)';
 ax.FontSize=10;
 end
