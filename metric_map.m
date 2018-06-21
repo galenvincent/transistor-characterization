@@ -1,11 +1,15 @@
 % Function to compare the different 5 metrics across each of the channels
 % of each wafer. Looking at both forward and reverse sweeps
 
-function dd = metric_map(dd)
-metric_map_help(dd);
-nchan = length(dd);
+function dd = metric_map(dd_old)
+nchan = length(dd_old);
 
-numdeleted = 0;
+% Delete any voltage threshold voltage values above the indicated
+vt_cutoff = 100;
+dd_med = dd_old(~(abs([dd_old(:).backVt])>vt_cutoff));
+dd = dd_med(~(abs([dd_med(:).forVt])>vt_cutoff));
+
+metric_map_help(dd);
 
 while true
     row = input('Enter row # (0 to re-plot, -1 to exit): ');
@@ -64,6 +68,15 @@ for i = 1:nchan
     Rback(dd(i).ChanRow,dd(i).ChanCol) = dd(i).backRFactor;
     Rfor(dd(i).ChanRow,dd(i).ChanCol) = dd(i).forRFactor;
 end
+
+% Calculate and show the correlation matrix for the different metrics
+
+%Metric_Matrix = [MMback(:), MMfor(:), VTback(:), VTfor(:), Hyst(:), Cback(:), Cfor(:), Rback(:), Rfor(:)];
+% figure;
+% imagesc(corrcoef(Metric_Matrix));
+%figure;
+%myscatter3(Metric_Matrix(:,[2,5]), Metric_Matrix(:,7))
+
 
 max_mob_back = max(max(MMback));
 max_mob_for = max(max(MMfor));

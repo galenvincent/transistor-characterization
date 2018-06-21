@@ -7,13 +7,16 @@ function DD = mob_dual_analysis(folderPath,vg_limit,chanType,semiType)
 % chanType 2 = 180606gbv1,4,5, 180619gbv6
 % chanType 3 = 180606gbv2
 
+% semiType is either 'p' or 'n'
+
 %% Enter constants
 ad=pwd;
 cd(folderPath)
 DD=dir('*.iv');
 cd(ad);
 
-DE = 3.9; % Dielectric constant of SiO2
+% DE = 3.9; % Dielectric constant of SiO2
+DE = 2.1;
 
 % below is in um
 switch chanType
@@ -31,6 +34,12 @@ switch chanType
         L_vec = [1,5,5,10,20,25,50,80,100]; % Vector of channel lengths
         W_vec = [1000,1000,1000,1000,1000,1000,1000,1000,1000]; % Vector of channel widths
         d_gate = 57E-9; %(180613gbv);
+        
+    case 4
+        L_vec = fliplr([50,100,50,100,50,100,50,100]);
+        W_vec = [1000,1000,1000,1000,1000,1000,1000,1000,1000]; % Vector of channel widths
+        d_gate = 650E-9; %(180613gbv);
+        
     otherwise
         print('Enter valid type');
 end
@@ -59,6 +68,7 @@ L2N = struct('A',1,...
 %% Upload data from file into struct & Break into forward and backward sweeps
 for i =1:length(DD)
     DD(i).path= fullfile(folderPath, DD(i).name);
+    DD(i).semiType = semiType;
 end
 
 for i = 1:length(DD)

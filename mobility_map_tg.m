@@ -37,7 +37,7 @@ for i = 1:length(DD)
     DD(i).ChanCol = L2N.(DD(i).ChanLetter);
     DD(i).ChanLen = L_vec(DD(i).ChanRow)*1E-6;
     
-    [mob, VT, vg, id, fit_fun, leak] = calcMobIV(DD(i).path,t_gate,1E-3,DD(i).ChanLen,DE);
+    [mob, VT, vg, id, fit_fun, leak] = calcMobIV_n(DD(i).path,t_gate,1E-3,DD(i).ChanLen,DE);
     
     DD(i).mob=mob;
     DD(i).vt=VT;
