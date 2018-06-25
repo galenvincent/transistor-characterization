@@ -1,11 +1,19 @@
 % function to analyze how to mobility changes over the course of a full
 % transfer curve, and how the threshold voltage changes with it
 
+%NILS: Right now, mobility sweeps over a range of voltages which ends when
+%the drain current either falls below zero, or begins to increase instead
+%of decrease. With any sort of noisy data, this will produce an incorrect
+%range of mobilities to sweep over.
+%This might start to cause problems at some point, but it's working
+%perfectly for my data right now, so I'm going to stick with it.
+
 function DD = mob_dual_analysis(folderPath,vg_limit,chanType,semiType)
 
 % chanType 1 = 180613gbv, 180619gbv1,2,3,4,5
-% chanType 2 = 180606gbv1,4,5, 180619gbv6
+% chanType 2 = 180606gbv1,4,5, 180619gbv6??(check)
 % chanType 3 = 180606gbv2
+% chanType 4 = Nils' data
 
 % semiType is either 'p' or 'n'
 
@@ -15,30 +23,31 @@ cd(folderPath)
 DD=dir('*.iv');
 cd(ad);
 
-% DE = 3.9; % Dielectric constant of SiO2
-DE = 2.1;
-
 % below is in um
 switch chanType
     case 2
         L_vec = [1,2,5,10,20,25,50,80,100]; % Vector of channel lengths
         W_vec = [400,400,400,500,500,800,800,1000,1000]; % Vector of channel widths
         d_gate = 200E-9; %(180606gbv);
+        DE = 3.9; %SiO2
         
     case 3
         L_vec = [1,2,5,10,20,25,50,80,100]; % Vector of channel lengths
         W_vec = [1000,1000,1000,1000,1000,1000,1000,1000,1000]; % Vector of channel widths
         d_gate = 200E-9; %(180606gbv);
+        DE = 3.9; %SiO2
         
     case 1
         L_vec = [1,5,5,10,20,25,50,80,100]; % Vector of channel lengths
         W_vec = [1000,1000,1000,1000,1000,1000,1000,1000,1000]; % Vector of channel widths
         d_gate = 57E-9; %(180613gbv);
+        DE = 3.9;%SiO2
         
     case 4
         L_vec = fliplr([50,100,50,100,50,100,50,100]);
         W_vec = [1000,1000,1000,1000,1000,1000,1000,1000,1000]; % Vector of channel widths
         d_gate = 650E-9; %(180613gbv);
+        DE = 2.1; %Whatever Nils used
         
     otherwise
         print('Enter valid type');
@@ -112,6 +121,8 @@ for i = 1:nchan
     
     % Search for when the drain current goes negative, as an indication that we
     % have left the region of interest for mobility calculations
+    
+    
     back_diff = diff(table2array(DD(i).backward_id));
     for_diff = diff(table2array(DD(i).forward_id));
     for_sign = sign(for_diff(end));
@@ -219,7 +230,6 @@ end
 
 end
 
-% Next... create the perfect data set and see what happens.
 
 function [Mobility,VT,mfun,M] = fitSatMob(VGRange,IDRange,Cap,W,L)
 

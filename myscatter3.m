@@ -6,7 +6,7 @@ function [ax,hscat,f] = myscatter3(Data,R)
 f = figure;
 ax = gca;
 hold(ax,'on');
-hscat = scatter3(ax,Data(:,1),Data(:,2),R,'ob');
+hscat = scatter3(Data(:,1),Data(:,2),R,'ob');
 
 for i = 1:length(R)
     xi = Data(i,1);

@@ -4,32 +4,32 @@
 function output_stats(fileName,stats_list)
 len = length(stats_list);
 
-out = zeros(18,len);
+out = zeros(len,18);
 
 for i = 1:len
     % forward sweep first
-   out(1,i) = stats_list(i).mob.forMean;
-   out(2,i) = stats_list(i).mob.backMean;
-   out(3,i) = stats_list(i).mob.forSTD;
-   out(4,i) = stats_list(i).mob.backSTD;
+   out(i,1) = stats_list(i).mob.forMean;
+   out(i,2) = stats_list(i).mob.backMean;
+   out(i,3) = stats_list(i).mob.forSTD;
+   out(i,4) = stats_list(i).mob.backSTD;
    
-   out(5,i) = stats_list(i).vt.forMean;
-   out(6,i) = stats_list(i).vt.backMean;
-   out(7,i) = stats_list(i).vt.forSTD;
-   out(8,i) = stats_list(i).vt.backSTD;
+   out(i,5) = stats_list(i).vt.forMean;
+   out(i,6) = stats_list(i).vt.backMean;
+   out(i,7) = stats_list(i).vt.forSTD;
+   out(i,8) = stats_list(i).vt.backSTD;
    
-   out(9,i) = stats_list(i).hyst.Mean;
-   out(10,i) = stats_list(i).hyst.STD;
+   out(i,9) = stats_list(i).hyst.Mean;
+   out(i,10) = stats_list(i).hyst.STD;
    
-   out(11,i) = stats_list(i).curv.forMean;
-   out(12,i) = stats_list(i).curv.backMean;
-   out(13,i) = stats_list(i).curv.forSTD;
-   out(14,i) = stats_list(i).curv.backSTD;
+   out(i,11) = stats_list(i).curv.forMean;
+   out(i,12) = stats_list(i).curv.backMean;
+   out(i,13) = stats_list(i).curv.forSTD;
+   out(i,14) = stats_list(i).curv.backSTD;
    
-   out(15,i) = stats_list(i).r.forMean;
-   out(16,i) = stats_list(i).r.backMean;
-   out(17,i) = stats_list(i).r.forSTD;
-   out(18,i) = stats_list(i).r.backSTD;
+   out(i,15) = stats_list(i).r.forMean;
+   out(i,16) = stats_list(i).r.backMean;
+   out(i,17) = stats_list(i).r.forSTD;
+   out(i,18) = stats_list(i).r.backSTD;
 end
 
 csvwrite(fileName,out);

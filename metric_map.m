@@ -71,9 +71,10 @@ end
 
 % Calculate and show the correlation matrix for the different metrics
 
-%Metric_Matrix = [MMback(:), MMfor(:), VTback(:), VTfor(:), Hyst(:), Cback(:), Cfor(:), Rback(:), Rfor(:)];
-% figure;
-% imagesc(corrcoef(Metric_Matrix));
+Metric_Matrix = [MMback(:), MMfor(:), VTback(:), VTfor(:), Hyst(:), Cback(:), Cfor(:), Rback(:), Rfor(:)];
+figure('Name','Correlation Matrix');
+imagesc(corrcoef(Metric_Matrix));
+
 %figure;
 %myscatter3(Metric_Matrix(:,[2,5]), Metric_Matrix(:,7))
 
