@@ -26,11 +26,13 @@ end
 datatab.RTMobForW = find_weights(datatab.RTMobForSTD);
 datatab.VtForW = find_weights(datatab.VtForSTD);
 datatab.HystFactorW = find_weights(datatab.HystFactorSTD);
-datatab.CurveFactorForSTD = find_weights(datatab.CurveFactorForSTD);
+datatab.CurveFactorForW = find_weights(datatab.CurveFactorForSTD);
 
 % Do a weighted linear model fit
 lms.mob = fitlm(datatab,'RTMobFor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp','Weights',datatab.RTMobForW);
-
+lms.vt = fitlm(datatab,'VtFor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp','Weights',datatab.VtForW);
+lms.hyst = fitlm(datatab,'HystFactor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp','Weights',datatab.HystFactorW);
+lms.curve = fitlm(datatab,'CurveFactorFor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp','Weights',datatab.CurveFactorForW);
 
 end
 
