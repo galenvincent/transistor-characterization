@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17606,        488]
-NotebookOptionsPosition[     16872,        458]
-NotebookOutlinePosition[     17215,        473]
-CellTagsIndexPosition[     17172,        470]
+NotebookDataLength[     36442,        974]
+NotebookOptionsPosition[     34838,        910]
+NotebookOutlinePosition[     35181,        925]
+CellTagsIndexPosition[     35138,        922]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,10 +25,9 @@ Cell["DPP/SEBS Transistor Fabrication Optimization Visualization", "Title",
 
 Cell[CellGroupData[{
 
-Cell["Input equation from MATLAB", "Chapter",
- CellChangeTimes->{{3.7389376837460117`*^9, 3.738937741102977*^9}}],
-
-Cell[CellGroupData[{
+Cell["Input fit equations for each metric from MATLAB", "Chapter",
+ CellChangeTimes->{{3.7389376837460117`*^9, 3.738937741102977*^9}, {
+  3.739100073002513*^9, 3.739100080017697*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -49,38 +48,38 @@ Cell[BoxData[{
     RowBox[{"mob", "[", 
      RowBox[{"w_", ",", "s_", ",", "t_"}], "]"}], " ", "=", " ", 
     RowBox[{
-     RowBox[{"a", "[", 
+     RowBox[{"m", "[", 
       RowBox[{"[", "1", "]"}], "]"}], "+", " ", 
      RowBox[{
-      RowBox[{"a", "[", 
+      RowBox[{"m", "[", 
        RowBox[{"[", "2", "]"}], "]"}], "w"}], " ", "+", " ", 
      RowBox[{
-      RowBox[{"a", "[", 
+      RowBox[{"m", "[", 
        RowBox[{"[", "3", "]"}], "]"}], " ", "s"}], " ", "+", " ", 
      RowBox[{
-      RowBox[{"a", "[", 
+      RowBox[{"m", "[", 
        RowBox[{"[", "4", "]"}], "]"}], "t"}], " ", "+", " ", 
      RowBox[{
-      RowBox[{"a", "[", 
-       RowBox[{"[", "5", "]"}], "]"}], 
+      RowBox[{"m", "[", 
+       RowBox[{"[", "5", "]"}], "]"}], "w", " ", "s"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"m", "[", 
+       RowBox[{"[", "6", "]"}], "]"}], " ", "w", " ", "t"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"m", "[", 
+       RowBox[{"[", "7", "]"}], "]"}], " ", "s", " ", "t"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"m", "[", 
+       RowBox[{"[", "8", "]"}], "]"}], " ", 
       SuperscriptBox["w", "2"]}], " ", "+", " ", 
      RowBox[{
-      RowBox[{"a", "[", 
-       RowBox[{"[", "6", "]"}], "]"}], " ", 
+      RowBox[{"m", "[", 
+       RowBox[{"[", "9", "]"}], "]"}], " ", 
       SuperscriptBox["s", "2"]}], " ", "+", " ", 
      RowBox[{
-      RowBox[{"a", "[", 
-       RowBox[{"[", "7", "]"}], "]"}], " ", 
-      SuperscriptBox["t", "2"]}], " ", "+", " ", 
-     RowBox[{
-      RowBox[{"a", "[", 
-       RowBox[{"[", "8", "]"}], "]"}], " ", "w", " ", "s"}], " ", "+", " ", 
-     RowBox[{
-      RowBox[{"a", "[", 
-       RowBox[{"[", "9", "]"}], "]"}], " ", "s", " ", "t"}], " ", "+", " ", 
-     RowBox[{
-      RowBox[{"a", "[", 
-       RowBox[{"[", "10", "]"}], "]"}], " ", "w", " ", "t"}]}]}], ";"}], 
+      RowBox[{"m", "[", 
+       RowBox[{"[", "10", "]"}], "]"}], " ", 
+      SuperscriptBox["t", "2"]}]}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v", " ", "=", " ", 
@@ -111,25 +110,25 @@ Cell[BoxData[{
        RowBox[{"[", "4", "]"}], "]"}], "t"}], " ", "+", " ", 
      RowBox[{
       RowBox[{"v", "[", 
-       RowBox[{"[", "5", "]"}], "]"}], 
+       RowBox[{"[", "5", "]"}], "]"}], "w", " ", "s"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"v", "[", 
+       RowBox[{"[", "6", "]"}], "]"}], " ", "w", " ", "t"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"v", "[", 
+       RowBox[{"[", "7", "]"}], "]"}], " ", "s", " ", "t"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"v", "[", 
+       RowBox[{"[", "8", "]"}], "]"}], " ", 
       SuperscriptBox["w", "2"]}], " ", "+", " ", 
      RowBox[{
       RowBox[{"v", "[", 
-       RowBox[{"[", "6", "]"}], "]"}], " ", 
+       RowBox[{"[", "9", "]"}], "]"}], " ", 
       SuperscriptBox["s", "2"]}], " ", "+", " ", 
      RowBox[{
       RowBox[{"v", "[", 
-       RowBox[{"[", "7", "]"}], "]"}], " ", 
-      SuperscriptBox["t", "2"]}], " ", "+", " ", 
-     RowBox[{
-      RowBox[{"v", "[", 
-       RowBox[{"[", "8", "]"}], "]"}], " ", "w", " ", "s"}], " ", "+", " ", 
-     RowBox[{
-      RowBox[{"v", "[", 
-       RowBox[{"[", "9", "]"}], "]"}], " ", "s", " ", "t"}], " ", "+", " ", 
-     RowBox[{
-      RowBox[{"v", "[", 
-       RowBox[{"[", "10", "]"}], "]"}], " ", "w", " ", "t"}]}]}], ";"}], 
+       RowBox[{"[", "10", "]"}], "]"}], " ", 
+      SuperscriptBox["t", "2"]}]}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"h", " ", "=", " ", 
@@ -165,25 +164,25 @@ Cell[BoxData[{
        RowBox[{"[", "4", "]"}], "]"}], "t"}], " ", "+", " ", 
      RowBox[{
       RowBox[{"h", "[", 
-       RowBox[{"[", "5", "]"}], "]"}], 
+       RowBox[{"[", "5", "]"}], "]"}], "w", " ", "s"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"h", "[", 
+       RowBox[{"[", "6", "]"}], "]"}], " ", "w", " ", "t"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"h", "[", 
+       RowBox[{"[", "7", "]"}], "]"}], " ", "s", " ", "t"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"h", "[", 
+       RowBox[{"[", "8", "]"}], "]"}], " ", 
       SuperscriptBox["w", "2"]}], " ", "+", " ", 
      RowBox[{
       RowBox[{"h", "[", 
-       RowBox[{"[", "6", "]"}], "]"}], " ", 
+       RowBox[{"[", "9", "]"}], "]"}], " ", 
       SuperscriptBox["s", "2"]}], " ", "+", " ", 
      RowBox[{
       RowBox[{"h", "[", 
-       RowBox[{"[", "7", "]"}], "]"}], " ", 
-      SuperscriptBox["t", "2"]}], " ", "+", " ", 
-     RowBox[{
-      RowBox[{"h", "[", 
-       RowBox[{"[", "8", "]"}], "]"}], " ", "w", " ", "s"}], " ", "+", " ", 
-     RowBox[{
-      RowBox[{"h", "[", 
-       RowBox[{"[", "9", "]"}], "]"}], " ", "s", " ", "t"}], " ", "+", " ", 
-     RowBox[{
-      RowBox[{"h", "[", 
-       RowBox[{"[", "10", "]"}], "]"}], " ", "w", " ", "t"}]}]}], ";"}], 
+       RowBox[{"[", "10", "]"}], "]"}], " ", 
+      SuperscriptBox["t", "2"]}]}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"c", " ", "=", " ", 
@@ -203,7 +202,7 @@ Cell[BoxData[{
     RowBox[{"w_", ",", "s_", ",", "t_"}], "]"}], " ", "=", " ", 
    RowBox[{
     RowBox[{"c", "[", 
-     RowBox[{"[", "1", "]"}], "]"}], "+", " ", 
+     RowBox[{"[", "1", "]"}], "]"}], "+", 
     RowBox[{
      RowBox[{"c", "[", 
       RowBox[{"[", "2", "]"}], "]"}], "w"}], " ", "+", " ", 
@@ -215,68 +214,40 @@ Cell[BoxData[{
       RowBox[{"[", "4", "]"}], "]"}], "t"}], " ", "+", " ", 
     RowBox[{
      RowBox[{"c", "[", 
-      RowBox[{"[", "5", "]"}], "]"}], 
+      RowBox[{"[", "5", "]"}], "]"}], "w", " ", "s"}], " ", "+", " ", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"[", "6", "]"}], "]"}], " ", "w", " ", "t"}], " ", "+", " ", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"[", "7", "]"}], "]"}], " ", "s", " ", "t"}], " ", "+", " ", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"[", "8", "]"}], "]"}], " ", 
      SuperscriptBox["w", "2"]}], " ", "+", " ", 
     RowBox[{
      RowBox[{"c", "[", 
-      RowBox[{"[", "6", "]"}], "]"}], " ", 
+      RowBox[{"[", "9", "]"}], "]"}], " ", 
      SuperscriptBox["s", "2"]}], " ", "+", " ", 
     RowBox[{
      RowBox[{"c", "[", 
-      RowBox[{"[", "7", "]"}], "]"}], " ", 
-     SuperscriptBox["t", "2"]}], " ", "+", " ", 
-    RowBox[{
-     RowBox[{"c", "[", 
-      RowBox[{"[", "8", "]"}], "]"}], " ", "w", " ", "s"}], " ", "+", " ", 
-    RowBox[{
-     RowBox[{"c", "[", 
-      RowBox[{"[", "9", "]"}], "]"}], " ", "s", " ", "t"}], " ", "+", " ", 
-    RowBox[{
-     RowBox[{"c", "[", 
-      RowBox[{"[", "10", "]"}], "]"}], " ", "w", " ", "t"}]}]}], 
-  ";"}]}], "Input",
+      RowBox[{"[", "10", "]"}], "]"}], " ", 
+     SuperscriptBox["t", "2"]}]}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.738937744364338*^9, 3.7389377544877787`*^9}, {
   3.738937806506987*^9, 3.7389379753376865`*^9}, {3.7389380237779207`*^9, 
   3.7389380351110516`*^9}, {3.738940088624015*^9, 3.7389400946988072`*^9}, {
   3.738949140532519*^9, 3.73894920451422*^9}, {3.7390962935430484`*^9, 
-  3.7390964325690885`*^9}, {3.7390965659532647`*^9, 3.739096727694749*^9}}],
-
-Cell[BoxData[
- TemplateBox[{
-  "Part","partd",
-   "\"Part specification \\!\\(\\*RowBox[{\\\"a\\\", \\\"\[LeftDoubleBracket]\
-\\\", \\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is longer than depth of \
-object.\"",2,2,1,15782606974522216655,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.739097144486864*^9}],
-
-Cell[BoxData[
- TemplateBox[{
-  "Part","partd",
-   "\"Part specification \\!\\(\\*RowBox[{\\\"a\\\", \\\"\[LeftDoubleBracket]\
-\\\", \\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is longer than depth of \
-object.\"",2,2,2,15782606974522216655,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.7390971445492706`*^9}],
-
-Cell[BoxData[
- TemplateBox[{
-  "Part","partd",
-   "\"Part specification \\!\\(\\*RowBox[{\\\"a\\\", \\\"\[LeftDoubleBracket]\
-\\\", \\\"3\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is longer than depth of \
-object.\"",2,2,3,15782606974522216655,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.739097144580474*^9}],
-
-Cell[BoxData[
- TemplateBox[{
-  "General","stop",
-   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
-\\\"partd\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
-calculation.\"",2,2,4,15782606974522216655,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.7390971445960755`*^9}]
+  3.7390964325690885`*^9}, {3.7390965659532647`*^9, 3.739096727694749*^9}, {
+  3.7390981691344614`*^9, 3.7390981899436097`*^9}, {3.739100698649748*^9, 
+  3.7391008158444753`*^9}}]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Define the desirability function based on the four metric fits\
+\>", "Chapter",
+ CellChangeTimes->{{3.7391000875134897`*^9, 3.739100110480088*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -353,84 +324,137 @@ Cell[BoxData[{
         RowBox[{"w", ",", "s", ",", "t"}], "]"}], "]"}]}], ")"}], 
     RowBox[{"1", "/", "4"}]]}], ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.739096731179661*^9, 3.7390967335071354`*^9}, {
-  3.739096764875944*^9, 3.739097049124468*^9}}],
+  3.739096764875944*^9, 3.739097049124468*^9}}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"outMin", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"outMax", " ", "=", "1"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{"Manipulate", "[", 
+Cell["\<\
+Create a contour plot of the desirability function. Place in point indicating \
+the MATLAB found maximum.\
+\>", "Chapter",
+ CellChangeTimes->{{3.7391001221334887`*^9, 3.7391001802022963`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Full Desirability ", "Section",
+ CellChangeTimes->{{3.7391022598257113`*^9, 3.739102262839743*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"ContourPlot3D", "[", 
+   RowBox[{
+    RowBox[{"max", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "115"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"outMin", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"outMax", " ", "=", " ", "0.5577"}], ";"}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"p1", "=", 
+     RowBox[{"ListPointPlot3D", "[", 
+      RowBox[{
+       RowBox[{"{", "max", "}"}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"PointSize", "[", "0.05", "]"}], ",", "Red"}], "}"}]}]}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"Manipulate", "[", 
     RowBox[{
-     RowBox[{
-      RowBox[{"dtot", "[", 
-       RowBox[{"w", ",", "s", ",", "t"}], "]"}], "\[Equal]", "g"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"s", ",", "0", ",", "15"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"t", ",", "40", ",", "115"}], "}"}], ",", 
-     RowBox[{"ContourStyle", "\[Rule]", 
-      RowBox[{"RGBColor", "[", 
-       RowBox[{
-        RowBox[{"Rescale", "[", 
-         RowBox[{"g", ",", 
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"ContourPlot3D", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"dtot", "[", 
+           RowBox[{"w", ",", "s", ",", "t"}], "]"}], "\[Equal]", "g"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"s", ",", "0", ",", "15"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "40", ",", "130"}], "}"}], ",", 
+         RowBox[{"ContourStyle", "\[Rule]", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{
+            RowBox[{"Rescale", "[", 
+             RowBox[{"g", ",", 
+              RowBox[{"{", 
+               RowBox[{"outMin", ",", "outMax"}], "}"}]}], "]"}], ",", 
+            RowBox[{"1", "-", 
+             RowBox[{"Rescale", "[", 
+              RowBox[{"g", ",", 
+               RowBox[{"{", 
+                RowBox[{"outMin", ",", "outMax"}], "}"}]}], "]"}]}], ",", 
+            "0"}], "]"}]}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
           RowBox[{"{", 
-           RowBox[{"outMin", ",", "outMax"}], "}"}]}], "]"}], ",", 
-        RowBox[{"1", "-", 
-         RowBox[{"Rescale", "[", 
-          RowBox[{"g", ",", 
-           RowBox[{"{", 
-            RowBox[{"outMin", ",", "outMax"}], "}"}]}], "]"}]}], ",", "0"}], 
-       "]"}]}]}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"g", ",", "outMin", ",", "outMax"}], "}"}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.738938092735487*^9, 3.73893811728273*^9}, {
-  3.7389381543827405`*^9, 3.738938175279807*^9}, {3.7389382056094146`*^9, 
-  3.7389382077470007`*^9}, {3.738938391541363*^9, 3.7389383980920153`*^9}, {
-  3.738938497330783*^9, 3.7389385907440166`*^9}, {3.738938805551566*^9, 
-  3.7389388318415174`*^9}, {3.7389388772254744`*^9, 3.7389389103830433`*^9}, {
-  3.7389389877493734`*^9, 3.7389389945392094`*^9}, {3.7389390591313157`*^9, 
-  3.738939190193944*^9}, {3.738939754807356*^9, 3.7389398671101723`*^9}, {
-  3.738940009505727*^9, 3.7389400246899033`*^9}, {3.7389401091511345`*^9, 
-  3.7389401114504824`*^9}, {3.7389492118842463`*^9, 3.738949242909443*^9}, {
-  3.7389492820817986`*^9, 3.7389492938234777`*^9}, {3.7390970602159667`*^9, 
-  3.7390970870115767`*^9}}],
+           RowBox[{
+           "\"\<Percent DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+            "\"\<Stage Temp\>\""}], "}"}]}], ",", 
+         RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+         RowBox[{"LabelStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Black", ",", 
+            RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}], ",", 
+            RowBox[{"FontSize", "\[Rule]", "10"}]}], "]"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", "p1"}], 
+      "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"g", ",", "outMin", ",", "outMax"}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwdz00owwEYBvBx4UD5qLWGmWKJtpjhQDRJPrZmm4OpMUzy0dhh1JJka225
+TCxqQhFx8VUMaTXsMGaHMWrIYfk2lIa14v/8D2+/y9Pz9Ga09Uk6oikUCoM4
+mGqakmv8L3xm3IoCdpULOiDn67ETSke2eqDq4Zv0SvI5Cl2fDh10WnLMMHJ2
+aSVzSxvbcPstvAupxct2GOCfHsLb8KAb8vjiM3hQoPSRfTznPby+kLEHCI2G
+9hL4zMkTwvVkqgjSfIsy2NQdJLXXDZ1oCbPpcg+kzVacw6Bs7wIWPBkiDkJf
+890ftHrpWUf4053Pgmme+VyYeVPPhTuVFj58nTNXQ3OrSQBrfywSGLUWboFe
+faMCLonGlVChW+2FDZMaNZzRhUhV4iYdZJQm6OFE0O+HLOZYgOzpbn6Hm4Xy
+D1j0Jw2R+wzuD5y2JcYeEybu98fDmAVhEtQqXXRYE7ClQ+NwmLSqTJ0Ff/Up
+bPgPxnsbxg==
+  "]],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`g$$ = 0.068, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`g$$ = 0.321, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`g$$], 0, 1}}, Typeset`size$$ = {724.5, {22., 12.}}, 
-    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`g$338$$ = 0}, 
+      Hold[$CellContext`g$$], 0, 0.5577}}, Typeset`size$$ = {
+    576., {290., 297.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`g$47498$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$338$$, 0]}, 
+        Hold[$CellContext`g$$, $CellContext`g$47498$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> 
-      ContourPlot3D[$CellContext`dtot[$CellContext`w, $CellContext`s, \
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        ContourPlot3D[$CellContext`dtot[$CellContext`w, $CellContext`s, \
 $CellContext`t] == $CellContext`g$$, {$CellContext`w, 0, 1}, {$CellContext`s, 
-         0, 15}, {$CellContext`t, 40, 115}, ContourStyle -> RGBColor[
-          
-          Rescale[$CellContext`g$$, {$CellContext`outMin, \
+          0, 15}, {$CellContext`t, 40, 130}, ContourStyle -> RGBColor[
+           
+           Rescale[$CellContext`g$$, {$CellContext`outMin, \
 $CellContext`outMax}], 1 - 
-          Rescale[$CellContext`g$$, {$CellContext`outMin, \
-$CellContext`outMax}], 0]], "Specifications" :> {{$CellContext`g$$, 0, 1}}, 
-      "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{776., {60., 67.}},
+           Rescale[$CellContext`g$$, {$CellContext`outMin, \
+$CellContext`outMax}], 0], 
+         AxesLabel -> {"Percent DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
+         None, LabelStyle -> 
+         Directive[Black, FontFamily -> "Helvetica", FontSize -> 10], 
+         ImageSize -> Large], $CellContext`p1], 
+      "Specifications" :> {{$CellContext`g$$, 0, 0.5577}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{627., {337., 344.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -441,17 +465,445 @@ $CellContext`outMax}], 0]], "Specifications" :> {{$CellContext`g$$, 0, 1}},
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{
-  3.7389381182871237`*^9, {3.7389381584215145`*^9, 3.7389381759058037`*^9}, 
-   3.738938208121399*^9, 3.7389382471959515`*^9, {3.7389385564420743`*^9, 
-   3.738938591432452*^9}, {3.7389388213765793`*^9, 3.738938833608408*^9}, {
-   3.738938880367236*^9, 3.7389389110714874`*^9}, 3.7389389950248404`*^9, {
-   3.738939107953252*^9, 3.738939117005238*^9}, 3.7389391924276886`*^9, 
-   3.7389397812466555`*^9, {3.738939811911826*^9, 3.73893984047766*^9}, 
-   3.738939877430636*^9, 3.7389400250955296`*^9, {3.738940098030821*^9, 
-   3.738940113373207*^9}, 3.738949244112712*^9, {3.7389492868490744`*^9, 
-   3.73894929524716*^9}, 3.7390934244585843`*^9, 3.739097094682521*^9, 
-   3.739097144705287*^9}]
+ CellChangeTimes->{{3.73909979055494*^9, 3.739099800351979*^9}, 
+   3.739099907205036*^9, 3.739099943674741*^9, 3.7390999884976597`*^9, {
+   3.739100025616807*^9, 3.7391000483784003`*^9}, 3.7391008587328544`*^9, {
+   3.7391010310576415`*^9, 3.7391010593692427`*^9}, {3.739101109010504*^9, 
+   3.739101116914144*^9}, {3.739101253863102*^9, 3.7391012804139166`*^9}, {
+   3.739101334755335*^9, 3.7391013992014832`*^9}, {3.7391014478466434`*^9, 
+   3.739101450283572*^9}, {3.7391015454060345`*^9, 3.739101559027945*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Contour plots of each of the individual metrics", "Chapter",
+ CellChangeTimes->{{3.7391018019587135`*^9, 3.739101815204787*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Mobility", "Section",
+ CellChangeTimes->{{3.7391018233139668`*^9, 3.739101827218707*^9}, 
+   3.739101884035901*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"outMinm", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"outMaxm", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"ContourPlot3D", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"mob", "[", 
+         RowBox[{"w", ",", "s", ",", "t"}], "]"}], "\[Equal]", "g"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"s", ",", "0", ",", "15"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "40", ",", "130"}], "}"}], ",", 
+       RowBox[{"ContourStyle", "\[Rule]", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{
+          RowBox[{"Rescale", "[", 
+           RowBox[{"g", ",", 
+            RowBox[{"{", 
+             RowBox[{"outMinm", ",", "outMaxm"}], "}"}]}], "]"}], ",", 
+          RowBox[{"1", "-", 
+           RowBox[{"Rescale", "[", 
+            RowBox[{"g", ",", 
+             RowBox[{"{", 
+              RowBox[{"outMinm", ",", "outMaxm"}], "}"}]}], "]"}]}], ",", 
+          "0"}], "]"}]}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Percent DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+          "\"\<Stage Temp\>\""}], "}"}]}], ",", 
+       RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+       RowBox[{"LabelStyle", "\[Rule]", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", 
+          RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}], ",", 
+          RowBox[{"FontSize", "\[Rule]", "10"}]}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", "p1"}], "]"}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{"g", ",", "outMinm", ",", "outMaxm"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.739101886581897*^9, 3.739101938418486*^9}, {
+  3.7391019737932816`*^9, 3.7391019800853662`*^9}, {3.7391020240013585`*^9, 
+  3.739102024297781*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`g$$ = 0.3, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`g$$], 0, 1}}, Typeset`size$$ = {576., {290., 297.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`g$53297$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`g$$, $CellContext`g$53297$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        ContourPlot3D[$CellContext`mob[$CellContext`w, $CellContext`s, \
+$CellContext`t] == $CellContext`g$$, {$CellContext`w, 0, 1}, {$CellContext`s, 
+          0, 15}, {$CellContext`t, 40, 130}, ContourStyle -> RGBColor[
+           
+           Rescale[$CellContext`g$$, {$CellContext`outMinm, \
+$CellContext`outMaxm}], 1 - 
+           Rescale[$CellContext`g$$, {$CellContext`outMinm, \
+$CellContext`outMaxm}], 0], 
+         AxesLabel -> {"Percent DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
+         None, LabelStyle -> 
+         Directive[Black, FontFamily -> "Helvetica", FontSize -> 10], 
+         ImageSize -> Large], $CellContext`p1], 
+      "Specifications" :> {{$CellContext`g$$, 0, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{627., {337., 344.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.739101942917632*^9, 3.739101980381789*^9, 
+  3.7391020293659716`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Threshold Voltage", "Section",
+ CellChangeTimes->{{3.7391018309573956`*^9, 3.739101835382536*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"outMinv", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"outMaxv", " ", "=", " ", "20"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"ContourPlot3D", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"vt", "[", 
+         RowBox[{"w", ",", "s", ",", "t"}], "]"}], "\[Equal]", "g"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"s", ",", "0", ",", "15"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "40", ",", "130"}], "}"}], ",", 
+       RowBox[{"ContourStyle", "\[Rule]", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{
+          RowBox[{"Rescale", "[", 
+           RowBox[{"g", ",", 
+            RowBox[{"{", 
+             RowBox[{"outMinv", ",", "outMaxv"}], "}"}]}], "]"}], ",", 
+          RowBox[{"1", "-", 
+           RowBox[{"Rescale", "[", 
+            RowBox[{"g", ",", 
+             RowBox[{"{", 
+              RowBox[{"outMinv", ",", "outMaxv"}], "}"}]}], "]"}]}], ",", 
+          "0"}], "]"}]}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Percent DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+          "\"\<Stage Temp\>\""}], "}"}]}], ",", 
+       RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+       RowBox[{"LabelStyle", "\[Rule]", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", 
+          RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}], ",", 
+          RowBox[{"FontSize", "\[Rule]", "10"}]}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", "p1"}], "]"}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{"g", ",", "outMinv", ",", "outMaxv"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.739102066660243*^9, 3.73910208857393*^9}, {
+  3.7391021607510853`*^9, 3.73910216756621*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`g$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`g$$], 0, 20}}, Typeset`size$$ = {576., {290., 297.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`g$61153$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`g$$, $CellContext`g$61153$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        ContourPlot3D[$CellContext`vt[$CellContext`w, $CellContext`s, \
+$CellContext`t] == $CellContext`g$$, {$CellContext`w, 0, 1}, {$CellContext`s, 
+          0, 15}, {$CellContext`t, 40, 130}, ContourStyle -> RGBColor[
+           
+           Rescale[$CellContext`g$$, {$CellContext`outMinv, \
+$CellContext`outMaxv}], 1 - 
+           Rescale[$CellContext`g$$, {$CellContext`outMinv, \
+$CellContext`outMaxv}], 0], 
+         AxesLabel -> {"Percent DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
+         None, LabelStyle -> 
+         Directive[Black, FontFamily -> "Helvetica", FontSize -> 10], 
+         ImageSize -> Large], $CellContext`p1], 
+      "Specifications" :> {{$CellContext`g$$, 0, 20}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{627., {337., 344.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.739102091760976*^9, 3.739102171520314*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Hysteresis", "Section",
+ CellChangeTimes->{{3.7391018398500805`*^9, 3.7391018618811703`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"outMinh", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"outMaxh", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"ContourPlot3D", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"hyst", "[", 
+         RowBox[{"w", ",", "s", ",", "t"}], "]"}], "\[Equal]", "g"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"s", ",", "0", ",", "15"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "40", ",", "130"}], "}"}], ",", 
+       RowBox[{"ContourStyle", "\[Rule]", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{
+          RowBox[{"Rescale", "[", 
+           RowBox[{"g", ",", 
+            RowBox[{"{", 
+             RowBox[{"outMinh", ",", "outMaxh"}], "}"}]}], "]"}], ",", 
+          RowBox[{"1", "-", 
+           RowBox[{"Rescale", "[", 
+            RowBox[{"g", ",", 
+             RowBox[{"{", 
+              RowBox[{"outMinh", ",", "outMaxh"}], "}"}]}], "]"}]}], ",", 
+          "0"}], "]"}]}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Percent DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+          "\"\<Stage Temp\>\""}], "}"}]}], ",", 
+       RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+       RowBox[{"LabelStyle", "\[Rule]", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", 
+          RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}], ",", 
+          RowBox[{"FontSize", "\[Rule]", "10"}]}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", "p1"}], "]"}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{"g", ",", "outMinh", ",", "outMaxh"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.739102147784687*^9, 3.7391021920280924`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`g$$ = 0.8300000000000001, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`g$$], 0, 1}}, Typeset`size$$ = {576., {290., 297.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`g$63000$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`g$$, $CellContext`g$63000$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        ContourPlot3D[$CellContext`hyst[$CellContext`w, $CellContext`s, \
+$CellContext`t] == $CellContext`g$$, {$CellContext`w, 0, 1}, {$CellContext`s, 
+          0, 15}, {$CellContext`t, 40, 130}, ContourStyle -> RGBColor[
+           
+           Rescale[$CellContext`g$$, {$CellContext`outMinh, \
+$CellContext`outMaxh}], 1 - 
+           Rescale[$CellContext`g$$, {$CellContext`outMinh, \
+$CellContext`outMaxh}], 0], 
+         AxesLabel -> {"Percent DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
+         None, LabelStyle -> 
+         Directive[Black, FontFamily -> "Helvetica", FontSize -> 10], 
+         ImageSize -> Large], $CellContext`p1], 
+      "Specifications" :> {{$CellContext`g$$, 0, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{627., {337., 344.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.739102192293313*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Curvature", "Section",
+ CellChangeTimes->{{3.739101866831566*^9, 3.739101868302684*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"outMinc", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"outMaxc", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"ContourPlot3D", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"curve", "[", 
+         RowBox[{"w", ",", "s", ",", "t"}], "]"}], "\[Equal]", "g"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"s", ",", "0", ",", "15"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "40", ",", "130"}], "}"}], ",", 
+       RowBox[{"ContourStyle", "\[Rule]", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{
+          RowBox[{"Rescale", "[", 
+           RowBox[{"g", ",", 
+            RowBox[{"{", 
+             RowBox[{"outMinc", ",", "outMaxc"}], "}"}]}], "]"}], ",", 
+          RowBox[{"1", "-", 
+           RowBox[{"Rescale", "[", 
+            RowBox[{"g", ",", 
+             RowBox[{"{", 
+              RowBox[{"outMinc", ",", "outMaxc"}], "}"}]}], "]"}]}], ",", 
+          "0"}], "]"}]}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Percent DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+          "\"\<Stage Temp\>\""}], "}"}]}], ",", 
+       RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+       RowBox[{"LabelStyle", "\[Rule]", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", 
+          RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}], ",", 
+          RowBox[{"FontSize", "\[Rule]", "10"}]}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", "p1"}], "]"}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{"g", ",", "outMinc", ",", "outMaxc"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7391022097952614`*^9, 3.739102231886361*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`g$$ = 0.624, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`g$$], 0, 1}}, Typeset`size$$ = {576., {290., 297.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`g$65452$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`g$$, $CellContext`g$65452$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        ContourPlot3D[$CellContext`curve[$CellContext`w, $CellContext`s, \
+$CellContext`t] == $CellContext`g$$, {$CellContext`w, 0, 1}, {$CellContext`s, 
+          0, 15}, {$CellContext`t, 40, 130}, ContourStyle -> RGBColor[
+           
+           Rescale[$CellContext`g$$, {$CellContext`outMinc, \
+$CellContext`outMaxc}], 1 - 
+           Rescale[$CellContext`g$$, {$CellContext`outMinc, \
+$CellContext`outMaxc}], 0], 
+         AxesLabel -> {"Percent DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
+         None, LabelStyle -> 
+         Directive[Black, FontFamily -> "Helvetica", FontSize -> 10], 
+         ImageSize -> Large], $CellContext`p1], 
+      "Specifications" :> {{$CellContext`g$$, 0, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{627., {337., 344.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.739102236171091*^9}]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -473,20 +925,54 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 143, 1, 231, "Title"],
+Cell[580, 22, 143, 1, 101, "Title"],
 Cell[CellGroupData[{
-Cell[748, 27, 113, 1, 72, "Chapter"],
-Cell[CellGroupData[{
-Cell[886, 32, 7430, 209, 249, "Input"],
-Cell[8319, 243, 334, 7, 21, "Message"],
-Cell[8656, 252, 336, 7, 21, "Message"],
-Cell[8995, 261, 334, 7, 21, "Message"],
-Cell[9332, 270, 338, 7, 21, "Message"]
+Cell[748, 27, 183, 2, 72, "Chapter"],
+Cell[934, 31, 7526, 210, 227, "Input"]
 }, Open  ]],
-Cell[9685, 280, 2583, 75, 280, "Input"],
 Cell[CellGroupData[{
-Cell[12293, 359, 1939, 43, 88, "Input"],
-Cell[14235, 404, 2597, 49, 144, "Output"]
+Cell[8497, 246, 157, 3, 72, "Chapter"],
+Cell[8657, 251, 2583, 75, 280, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11277, 331, 202, 4, 123, "Chapter"],
+Cell[CellGroupData[{
+Cell[11504, 339, 105, 1, 70, "Section"],
+Cell[CellGroupData[{
+Cell[11634, 344, 3053, 77, 221, "Input"],
+Cell[14690, 423, 2660, 50, 698, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17411, 480, 134, 1, 72, "Chapter"],
+Cell[CellGroupData[{
+Cell[17570, 485, 121, 2, 70, "Section"],
+Cell[CellGroupData[{
+Cell[17716, 491, 2000, 50, 126, "Input"],
+Cell[19719, 543, 2225, 45, 698, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21993, 594, 104, 1, 70, "Section"],
+Cell[CellGroupData[{
+Cell[22122, 599, 1945, 49, 126, "Input"],
+Cell[24070, 650, 2198, 44, 698, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26317, 700, 99, 1, 70, "Section"],
+Cell[CellGroupData[{
+Cell[26441, 705, 1899, 48, 126, "Input"],
+Cell[28343, 755, 2192, 44, 698, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30584, 805, 94, 1, 70, "Section"],
+Cell[CellGroupData[{
+Cell[30703, 810, 1900, 48, 126, "Input"],
+Cell[32606, 860, 2180, 44, 698, "Output"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
