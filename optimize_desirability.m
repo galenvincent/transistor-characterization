@@ -8,7 +8,13 @@
 % This function finds the minimum. Find the minimum of the negative of
 % our desirability function in order to find the max.
 
-function des_op = optimize_desirability(lms)
+function des_op = optimize_desirability(lms, boot)
+% if boot = 0: non bootstrap method - output from fit_res_surf is the input
+% lms
+
+% if boot = 1: bootstrap method - output statistics struct from
+% fit_res_surf_bootstrap is the input lms
+
 % Individual desirability functions
 % Mobility - Maximize - d1
 L1 = 0;
@@ -40,11 +46,18 @@ d4 = @(curv)((curv - L4)./(T4 - L4)).^s4;
 
 
 % this is where the fit for each individual response would come in
-m = @(x)feval(lms.mob,x);
-v = @(x)feval(lms.vt,x);
-h = @(x)feval(lms.hyst,x);
-c = @(x)feval(lms.curve,x);
 % x = [wtp,speed,temp]
+if boot == 0
+    m = @(x)feval(lms.mob,x);
+    v = @(x)feval(lms.vt,x);
+    h = @(x)feval(lms.hyst,x);
+    c = @(x)feval(lms.curve,x);
+elseif boot == 1
+    m = @(x)dot(lms.mob.mean,[1,x(1),x(2),x(3),x(1)*x(2),x(1)*x(3),x(2)*x(3),x(1).^2,x(2).^2,x(3).^2]);
+    v = @(x)dot(lms.vt.mean,[1,x(1),x(2),x(3),x(1)*x(2),x(1)*x(3),x(2)*x(3),x(1).^2,x(2).^2,x(3).^2]);
+    h = @(x)dot(lms.hyst.mean,[1,x(1),x(2),x(3),x(1)*x(2),x(1)*x(3),x(2)*x(3),x(1).^2,x(2).^2,x(3).^2]);
+    c = @(x)dot(lms.curve.mean,[1,x(1),x(2),x(3),x(1)*x(2),x(1)*x(3),x(2)*x(3),x(1).^2,x(2).^2,x(3).^2]);
+end
 
 % D = (d1*d2*d3*d4)^(1/4)
 dtot = @(x)(-1)*(d1(m(x)).*d2(v(x)).*d3(h(x)).*d4(c(x))).^(1/4);

@@ -3,8 +3,6 @@
 
 function lms = fit_res_surf(datatab)
 %datatab is the table returned from read_database
-%model_fun is the equation for the model that you would like to use.
-    % Ex. model_fun = 'RTMobFor~
 
 % For all values that are NaN, or weren't able to be measured becasue of
 % device failure, change the metrics to be 25% worse than the worst metric
@@ -16,9 +14,9 @@ for i = [4,8,10]
 end
 datatab{isnan(datatab{:,'RTMobForSTD'}),:}(:,6) = max(abs(datatab{:,6}))*1.25;
 
-% Make the standatd deviation equal to the mean of the standard deviations
+% Make the standatd deviation equal to the min of the standard deviations
 for i = [5,7,9,11]
-    datatab{isnan(datatab{:,'CurveFactorForSTD'}),:}(:,i) = nanmean(datatab{~isnan(datatab{:,'CurveFactorForSTD'}),i});
+    datatab{isnan(datatab{:,'CurveFactorForSTD'}),:}(:,i) = nanmin(datatab{~isnan(datatab{:,'CurveFactorForSTD'}),i});
 end
 
 % First, find the weights for each data point for each response variable,

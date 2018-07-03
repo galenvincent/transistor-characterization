@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     36442,        974]
-NotebookOptionsPosition[     34838,        910]
-NotebookOutlinePosition[     35181,        925]
-CellTagsIndexPosition[     35138,        922]
+NotebookDataLength[     36544,        976]
+NotebookOptionsPosition[     34938,        912]
+NotebookOutlinePosition[     35284,        927]
+CellTagsIndexPosition[     35241,        924]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -424,17 +424,17 @@ bPgPxnsbxg==
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`g$$ = 0.321, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+   DynamicModuleBox[{$CellContext`g$$ = 0.47500000000000003`, Typeset`show$$ =
+     True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`g$$], 0, 0.5577}}, Typeset`size$$ = {
     576., {290., 297.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`g$47498$$ = 0}, 
+    Typeset`skipInitDone$$ = True, $CellContext`g$381$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$47498$$, 0]}, 
+        Hold[$CellContext`g$$, $CellContext`g$381$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -471,7 +471,8 @@ $CellContext`outMax}], 0],
    3.7391010310576415`*^9, 3.7391010593692427`*^9}, {3.739101109010504*^9, 
    3.739101116914144*^9}, {3.739101253863102*^9, 3.7391012804139166`*^9}, {
    3.739101334755335*^9, 3.7391013992014832`*^9}, {3.7391014478466434`*^9, 
-   3.739101450283572*^9}, {3.7391015454060345`*^9, 3.739101559027945*^9}}]
+   3.739101450283572*^9}, {3.7391015454060345`*^9, 3.739101559027945*^9}, 
+   3.7391788042097125`*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -544,17 +545,17 @@ Cell[BoxData[{
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`g$$ = 0.3, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`g$$ = 0, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`g$$], 0, 1}}, Typeset`size$$ = {576., {290., 297.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`g$53297$$ = 0}, 
+    True, $CellContext`g$496$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$53297$$, 0]}, 
+        Hold[$CellContext`g$$, $CellContext`g$496$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -586,7 +587,7 @@ $CellContext`outMaxm}], 0],
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{3.739101942917632*^9, 3.739101980381789*^9, 
-  3.7391020293659716`*^9}]
+  3.7391020293659716`*^9, 3.7391788044437184`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -651,17 +652,17 @@ Cell[BoxData[{
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`g$$ = 0., Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`g$$ = 1.25, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`g$$], 0, 20}}, Typeset`size$$ = {576., {290., 297.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`g$61153$$ = 0}, 
+    True, $CellContext`g$539$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$61153$$, 0]}, 
+        Hold[$CellContext`g$$, $CellContext`g$539$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -692,7 +693,8 @@ $CellContext`outMaxv}], 0],
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.739102091760976*^9, 3.739102171520314*^9}]
+ CellChangeTimes->{3.739102091760976*^9, 3.739102171520314*^9, 
+  3.7391788045529213`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -756,17 +758,17 @@ Cell[BoxData[{
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`g$$ = 0.8300000000000001, Typeset`show$$ = 
-    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+   DynamicModuleBox[{$CellContext`g$$ = 1., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`g$$], 0, 1}}, Typeset`size$$ = {576., {290., 297.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`g$63000$$ = 0}, 
+    True, $CellContext`g$582$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$63000$$, 0]}, 
+        Hold[$CellContext`g$$, $CellContext`g$582$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -797,7 +799,7 @@ $CellContext`outMaxh}], 0],
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.739102192293313*^9}]
+ CellChangeTimes->{3.739102192293313*^9, 3.7391788046621237`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -861,17 +863,17 @@ Cell[BoxData[{
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`g$$ = 0.624, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`g$$ = 0, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`g$$], 0, 1}}, Typeset`size$$ = {576., {290., 297.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`g$65452$$ = 0}, 
+    True, $CellContext`g$626$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$65452$$, 0]}, 
+        Hold[$CellContext`g$$, $CellContext`g$626$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -902,14 +904,14 @@ $CellContext`outMaxc}], 0],
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.739102236171091*^9}]
+ CellChangeTimes->{3.739102236171091*^9, 3.739178804771327*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1280, 942},
-WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+WindowSize->{1680, 1008},
+WindowMargins->{{1272, Automatic}, {Automatic, -8}},
 FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -928,7 +930,7 @@ Cell[CellGroupData[{
 Cell[580, 22, 143, 1, 101, "Title"],
 Cell[CellGroupData[{
 Cell[748, 27, 183, 2, 72, "Chapter"],
-Cell[934, 31, 7526, 210, 227, "Input"]
+Cell[934, 31, 7526, 210, 249, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[8497, 246, 157, 3, 72, "Chapter"],
@@ -939,39 +941,39 @@ Cell[11277, 331, 202, 4, 123, "Chapter"],
 Cell[CellGroupData[{
 Cell[11504, 339, 105, 1, 70, "Section"],
 Cell[CellGroupData[{
-Cell[11634, 344, 3053, 77, 221, "Input"],
-Cell[14690, 423, 2660, 50, 698, "Output"]
+Cell[11634, 344, 3053, 77, 183, "Input"],
+Cell[14690, 423, 2699, 51, 698, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[17411, 480, 134, 1, 72, "Chapter"],
+Cell[17450, 481, 134, 1, 72, "Chapter"],
 Cell[CellGroupData[{
-Cell[17570, 485, 121, 2, 70, "Section"],
+Cell[17609, 486, 121, 2, 70, "Section"],
 Cell[CellGroupData[{
-Cell[17716, 491, 2000, 50, 126, "Input"],
-Cell[19719, 543, 2225, 45, 698, "Output"]
+Cell[17755, 492, 2000, 50, 88, "Input"],
+Cell[19758, 544, 2243, 45, 698, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[21993, 594, 104, 1, 70, "Section"],
+Cell[22050, 595, 104, 1, 70, "Section"],
 Cell[CellGroupData[{
-Cell[22122, 599, 1945, 49, 126, "Input"],
-Cell[24070, 650, 2198, 44, 698, "Output"]
+Cell[22179, 600, 1945, 49, 126, "Input"],
+Cell[24127, 651, 2223, 45, 698, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26317, 700, 99, 1, 70, "Section"],
+Cell[26399, 702, 99, 1, 70, "Section"],
 Cell[CellGroupData[{
-Cell[26441, 705, 1899, 48, 126, "Input"],
-Cell[28343, 755, 2192, 44, 698, "Output"]
+Cell[26523, 707, 1899, 48, 126, "Input"],
+Cell[28425, 757, 2196, 44, 698, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30584, 805, 94, 1, 70, "Section"],
+Cell[30670, 807, 94, 1, 70, "Section"],
 Cell[CellGroupData[{
-Cell[30703, 810, 1900, 48, 126, "Input"],
-Cell[32606, 860, 2180, 44, 698, "Output"]
+Cell[30789, 812, 1900, 48, 126, "Input"],
+Cell[32692, 862, 2194, 44, 698, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
