@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     36544,        976]
-NotebookOptionsPosition[     34938,        912]
-NotebookOutlinePosition[     35284,        927]
-CellTagsIndexPosition[     35241,        924]
+NotebookDataLength[     39297,       1059]
+NotebookOptionsPosition[     37393,        985]
+NotebookOutlinePosition[     37739,       1000]
+CellTagsIndexPosition[     37696,        997]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -33,13 +33,17 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"m", " ", "=", " ", 
    RowBox[{"{", 
-    RowBox[{
-    "0", ",", "0", ",", "0", ",", "0.00519694271196454", ",", 
-     "0.0123601573072200", ",", 
-     RowBox[{"-", "0.0107904182596500"}], ",", 
-     RowBox[{"-", "0.000178894692688380"}], ",", "0.582198895898813", ",", 
-     "0.000354016265289693", ",", 
-     RowBox[{"2.54898731251755", "*", 
+    RowBox[{"0.411458035431094", ",", "0.814433635228817", ",", 
+     RowBox[{"-", "0.0689481986003259"}], ",", 
+     RowBox[{"-", "0.00823748480560326"}], ",", "0.0317360296323345", ",", 
+     RowBox[{"-", "0.00533906867862349"}], ",", 
+     RowBox[{
+      RowBox[{"-", "9.9377122407791"}], "*", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "6"}]]}], ",", 
+     RowBox[{"-", "0.447109538070044"}], ",", " ", "0.00365158202224509", ",",
+      " ", 
+     RowBox[{"9.83835706930347", "*", 
       SuperscriptBox["10", 
        RowBox[{"-", "5"}]]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -85,11 +89,13 @@ Cell[BoxData[{
   RowBox[{"v", " ", "=", " ", 
    RowBox[{"{", 
     RowBox[{
-    "0", ",", "0", ",", "0", ",", "0.480351406237280", ",", 
-     "0.347214185496348", ",", "0.520939662813114", ",", 
-     RowBox[{"-", "0.00260238533570684"}], ",", 
-     RowBox[{"-", "33.0617752379224"}], ",", "0.000506817375077628", ",", 
-     RowBox[{"-", "0.00750648051986738"}]}], "}"}]}], 
+     RowBox[{"-", "6.43690225944040"}], ",", "8.35593848441019", ",", " ", 
+     "1.19009272028097", ",", " ", "0.397166098045521", ",", 
+     RowBox[{"-", "0.553061267492386"}], ",", " ", "0.0277672366968368", ",", 
+     " ", "0.000322653872020023", ",", 
+     RowBox[{"-", "12.0586079005882"}], ",", 
+     RowBox[{"-", "0.0733761857535222"}], ",", 
+     RowBox[{"-", "0.00304115584910380"}]}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -133,16 +139,16 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"h", " ", "=", " ", 
    RowBox[{"{", 
-    RowBox[{
-    "0", ",", "0", ",", "0", ",", "0.0186981358844699", ",", 
-     "0.00316481225430068", ",", 
-     RowBox[{"-", "0.00853169608028823"}], ",", 
-     RowBox[{"2.60831587860805", "*", 
+    RowBox[{"0.850883493617710", ",", "0.0326333749742849", ",", 
+     RowBox[{"-", "0.0582162825894124"}], ",", 
+     RowBox[{"-", "0.00417035678390008"}], ",", " ", "0.0131379393078029", 
+     ",", 
+     RowBox[{"-", "0.00155540030535263"}], ",", " ", 
+     RowBox[{"8.02337648495404", "*", 
       SuperscriptBox["10", 
-       RowBox[{"-", "5"}]]}], ",", "0.595997248265213", ",", 
-     RowBox[{"-", "0.000257709707662897"}], ",", 
-     RowBox[{
-      RowBox[{"-", "7.46864373665739"}], "*", 
+       RowBox[{"-", "5"}]]}], ",", " ", "0.178404366263716", ",", " ", 
+     "0.00347046146517255", ",", " ", 
+     RowBox[{"4.64532298314221", "*", 
       SuperscriptBox["10", 
        RowBox[{"-", "5"}]]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -187,15 +193,20 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"c", " ", "=", " ", 
    RowBox[{"{", 
-    RowBox[{
-    "0", ",", "0", ",", "0", ",", "0.0131401530046859", ",", 
-     "0.00824631116902017", ",", 
-     RowBox[{"-", "0.0165283716476454"}], ",", 
-     RowBox[{"-", "0.000362072375692438"}], ",", "1.05576737197160", ",", 
-     "0.00128926141679499", ",", 
-     RowBox[{"6.04351409212088", "*", 
+    RowBox[{"0.706805004076749", ",", " ", "0.661878341212573", ",", 
+     RowBox[{"-", "0.0806277156369239"}], ",", 
+     RowBox[{"-", "0.00673494074712797"}], ",", " ", "0.0199807911612232", 
+     ",", 
+     RowBox[{"-", "0.00613506007963454"}], ",", 
+     RowBox[{
+      RowBox[{"-", "6.09688477957106"}], "*", 
       SuperscriptBox["10", 
-       RowBox[{"-", "6"}]]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+       RowBox[{"-", "6"}]]}], ",", 
+     RowBox[{"-", "0.0703257317193048"}], ",", " ", "0.00500098119860712", 
+     ",", " ", 
+     RowBox[{"8.51909017429843", "*", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "5"}]]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"curve", "[", 
@@ -239,7 +250,9 @@ Cell[BoxData[{
   3.738949140532519*^9, 3.73894920451422*^9}, {3.7390962935430484`*^9, 
   3.7390964325690885`*^9}, {3.7390965659532647`*^9, 3.739096727694749*^9}, {
   3.7390981691344614`*^9, 3.7390981899436097`*^9}, {3.739100698649748*^9, 
-  3.7391008158444753`*^9}}]
+  3.7391008158444753`*^9}, {3.739626344182596*^9, 3.739626372756112*^9}, {
+  3.7396264171427402`*^9, 3.739626483677477*^9}, {3.7396265165295305`*^9, 
+  3.7396266059231977`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -343,6 +356,36 @@ Cell["Full Desirability ", "Section",
 Cell[CellGroupData[{
 
 Cell[BoxData[
+ RowBox[{"Maximize", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"dtot", "[", 
+      RowBox[{"w", ",", "s", ",", "t"}], "]"}], ",", 
+     RowBox[{"w", " ", "<", "1"}], ",", " ", 
+     RowBox[{"w", " ", ">", " ", "0"}], ",", " ", 
+     RowBox[{"s", " ", ">", " ", "0"}], ",", " ", 
+     RowBox[{"s", " ", "<", " ", "15"}], ",", " ", 
+     RowBox[{"t", " ", "<", " ", "130"}], ",", " ", 
+     RowBox[{"t", " ", ">", " ", "40"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"w", ",", "s", ",", "t"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.739628665138567*^9, 3.7396287288640313`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.601413951803464`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"w", "\[Rule]", "3.281139833813722`*^-8"}], ",", 
+     RowBox[{"s", "\[Rule]", "1.8167465762184094`*^-9"}], ",", 
+     RowBox[{"t", "\[Rule]", "129.9999999946031`"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.7396287304772844`*^9, 3.7396312835725794`*^9, 
+  3.739786699533434*^9, 3.7397869965162625`*^9, 3.739787109177276*^9}]
+}, Open  ]],
+
+Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
@@ -353,8 +396,8 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"outMin", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"outMax", " ", "=", " ", "0.5577"}], ";"}], "\[IndentingNewLine]",
-    "\[IndentingNewLine]", 
+    RowBox[{"outMax", " ", "=", " ", "0.7"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"p1", "=", 
      RowBox[{"ListPointPlot3D", "[", 
@@ -363,7 +406,7 @@ Cell[BoxData[
        RowBox[{"PlotStyle", "\[Rule]", 
         RowBox[{"{", 
          RowBox[{
-          RowBox[{"PointSize", "[", "0.05", "]"}], ",", "Red"}], "}"}]}]}], 
+          RowBox[{"PointSize", "[", "0.00", "]"}], ",", "Red"}], "}"}]}]}], 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"Manipulate", "[", 
     RowBox[{
@@ -396,7 +439,7 @@ Cell[BoxData[
          RowBox[{"AxesLabel", "\[Rule]", 
           RowBox[{"{", 
            RowBox[{
-           "\"\<Percent DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+           "\"\<Fraction DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
             "\"\<Stage Temp\>\""}], "}"}]}], ",", 
          RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
          RowBox[{"LabelStyle", "\[Rule]", 
@@ -410,69 +453,88 @@ Cell[BoxData[
       RowBox[{"g", ",", "outMin", ",", "outMax"}], "}"}]}], 
     "]"}]}]}]], "Input",
  CellChangeTimes->CompressedData["
-1:eJwdz00owwEYBvBx4UD5qLWGmWKJtpjhQDRJPrZmm4OpMUzy0dhh1JJka225
-TCxqQhFx8VUMaTXsMGaHMWrIYfk2lIa14v/8D2+/y9Pz9Ga09Uk6oikUCoM4
-mGqakmv8L3xm3IoCdpULOiDn67ETSke2eqDq4Zv0SvI5Cl2fDh10WnLMMHJ2
-aSVzSxvbcPstvAupxct2GOCfHsLb8KAb8vjiM3hQoPSRfTznPby+kLEHCI2G
-9hL4zMkTwvVkqgjSfIsy2NQdJLXXDZ1oCbPpcg+kzVacw6Bs7wIWPBkiDkJf
-890ftHrpWUf4053Pgmme+VyYeVPPhTuVFj58nTNXQ3OrSQBrfywSGLUWboFe
-faMCLonGlVChW+2FDZMaNZzRhUhV4iYdZJQm6OFE0O+HLOZYgOzpbn6Hm4Xy
-D1j0Jw2R+wzuD5y2JcYeEybu98fDmAVhEtQqXXRYE7ClQ+NwmLSqTJ0Ff/Up
-bPgPxnsbxg==
+1:eJwd0W1IU3EUBvCbXwxJcBlDpi4DNVGUuk4jjOSKhKVi3kk04+qqK+qM+QJm
+iIR4hyh+aGKjQLEgUxLESpxvhbDqBqspOLeJe0FiVLqaCWZuCOs+/w+H35fD
+83A4Z+40s3VRFEWdlQYm9T/h2t0BJuXEKy1sLCyrgzn7P+uhunumCep//CNu
+sHs90LpnEaBoyjTCoxXXMNkbf2OG5t/hBSi/MLEM/czXD9AX7rBBFVO5At/n
+8k6SpxK/Q49Dk31fsq/3bgHcyTlXDl/HyytggnNMA6t1QeJyadeXTskMBbcK
+E0aL1mFQs+iAudu9RxZJZ81WBA7bFWkfcaftfDpMXn2eBVO912k4V2xi4K9n
+xhJovN1fBq8dmlh4bDpcC+2Gm1o4XjHIQ60weQ9WPW5vhSPCAVFfWS1A5aU4
+AxwKut0wPWXAT3J0NbvwbR73B+ZH1AekX0kfwqfzsuOfJGVLLbEw+kX5SdjJ
+WxXwqn/+NOx7GCZeudyaBkOGxGxoiGRyoifAbAZuEXWjuzy0+h40QFct1QP/
+llwkfntUPAI7Ylhim2xyAopdXiJt5dY+S5ZOvSSyIWop3iv9yRL1DpoHtx3w
+htbmgYuzM/JTkjHNtAL+B4gCcQI=
   "]],
 
 Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`g$$ = 0.47500000000000003`, Typeset`show$$ =
-     True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`g$$], 0, 0.5577}}, Typeset`size$$ = {
-    576., {290., 297.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`g$381$$ = 0}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$381$$, 0]}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> Show[
-        ContourPlot3D[$CellContext`dtot[$CellContext`w, $CellContext`s, \
-$CellContext`t] == $CellContext`g$$, {$CellContext`w, 0, 1}, {$CellContext`s, 
-          0, 15}, {$CellContext`t, 40, 130}, ContourStyle -> RGBColor[
-           
-           Rescale[$CellContext`g$$, {$CellContext`outMin, \
-$CellContext`outMax}], 1 - 
-           Rescale[$CellContext`g$$, {$CellContext`outMin, \
-$CellContext`outMax}], 0], 
-         AxesLabel -> {"Percent DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
-         None, LabelStyle -> 
-         Directive[Black, FontFamily -> "Helvetica", FontSize -> 10], 
-         ImageSize -> Large], $CellContext`p1], 
-      "Specifications" :> {{$CellContext`g$$, 0, 0.5577}}, "Options" :> {}, 
-      "DefaultOptions" :> {}],
-     ImageSizeCache->{627., {337., 344.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.73909979055494*^9, 3.739099800351979*^9}, 
-   3.739099907205036*^9, 3.739099943674741*^9, 3.7390999884976597`*^9, {
-   3.739100025616807*^9, 3.7391000483784003`*^9}, 3.7391008587328544`*^9, {
-   3.7391010310576415`*^9, 3.7391010593692427`*^9}, {3.739101109010504*^9, 
-   3.739101116914144*^9}, {3.739101253863102*^9, 3.7391012804139166`*^9}, {
-   3.739101334755335*^9, 3.7391013992014832`*^9}, {3.7391014478466434`*^9, 
-   3.739101450283572*^9}, {3.7391015454060345`*^9, 3.739101559027945*^9}, 
-   3.7391788042097125`*^9}]
+ RowBox[{
+  RowBox[{"p2", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"ContourPlot3D", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"dtot", "[", 
+           RowBox[{"w", ",", "s", ",", "t"}], "]"}], "\[Equal]", "g"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"s", ",", "0", ",", "15"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "40", ",", "130"}], "}"}], ",", 
+         RowBox[{"ContourStyle", "\[Rule]", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{
+            RowBox[{"Rescale", "[", 
+             RowBox[{"g", ",", 
+              RowBox[{"{", 
+               RowBox[{"outMin", ",", "outMax"}], "}"}]}], "]"}], ",", 
+            RowBox[{"1", "-", 
+             RowBox[{"Rescale", "[", 
+              RowBox[{"g", ",", 
+               RowBox[{"{", 
+                RowBox[{"outMin", ",", "outMax"}], "}"}]}], "]"}]}], ",", 
+            "0"}], "]"}]}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Fraction DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+            "\"\<Stage Temp\>\""}], "}"}]}], ",", 
+         RowBox[{"LabelStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Black", ",", 
+            RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}], ",", 
+            RowBox[{"FontSize", "\[Rule]", "10"}]}], "]"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", "p1"}], 
+      "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"g", ",", "outMin", ",", "outMax", ",", ".01"}], "}"}]}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7397874967934113`*^9, 3.7397874982286577`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", "\"\<Z:/figures\>\"", "]"}]], "Input"],
+
+Cell[BoxData["\<\"Z:\\\\figures\"\>"], "Output",
+ CellChangeTimes->{3.739786839168646*^9, 3.739787286301367*^9, 
+  3.739790605266928*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<desirability_sweep.avi\>\"", ",", "p2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7397867310574455`*^9, 3.739786787094243*^9}, {
+  3.739786827526673*^9, 3.739786835389325*^9}}],
+
+Cell[BoxData["\<\"desirability_sweep.avi\"\>"], "Output",
+ CellChangeTimes->{3.7397867935150757`*^9, 3.739786917328317*^9, 
+  3.7397872925757685`*^9, 3.739790644289286*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -526,7 +588,7 @@ Cell[BoxData[{
        RowBox[{"AxesLabel", "\[Rule]", 
         RowBox[{"{", 
          RowBox[{
-         "\"\<Percent DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+         "\"\<Fraction DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
           "\"\<Stage Temp\>\""}], "}"}]}], ",", 
        RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
        RowBox[{"LabelStyle", "\[Rule]", 
@@ -540,7 +602,7 @@ Cell[BoxData[{
     RowBox[{"g", ",", "outMinm", ",", "outMaxm"}], "}"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.739101886581897*^9, 3.739101938418486*^9}, {
   3.7391019737932816`*^9, 3.7391019800853662`*^9}, {3.7391020240013585`*^9, 
-  3.739102024297781*^9}}],
+  3.739102024297781*^9}, {3.739631258107162*^9, 3.7396312588403854`*^9}}],
 
 Cell[BoxData[
  TagBox[
@@ -551,11 +613,11 @@ Cell[BoxData[
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`g$$], 0, 1}}, Typeset`size$$ = {576., {290., 297.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`g$496$$ = 0}, 
+    True, $CellContext`g$2898$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$496$$, 0]}, 
+        Hold[$CellContext`g$$, $CellContext`g$2898$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -569,7 +631,7 @@ $CellContext`t] == $CellContext`g$$, {$CellContext`w, 0, 1}, {$CellContext`s,
 $CellContext`outMaxm}], 1 - 
            Rescale[$CellContext`g$$, {$CellContext`outMinm, \
 $CellContext`outMaxm}], 0], 
-         AxesLabel -> {"Percent DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
+         AxesLabel -> {"Fraction DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
          None, LabelStyle -> 
          Directive[Black, FontFamily -> "Helvetica", FontSize -> 10], 
          ImageSize -> Large], $CellContext`p1], 
@@ -587,7 +649,9 @@ $CellContext`outMaxm}], 0],
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{3.739101942917632*^9, 3.739101980381789*^9, 
-  3.7391020293659716`*^9, 3.7391788044437184`*^9}]
+  3.7391020293659716`*^9, 3.7391788044437184`*^9, 3.7396204353500495`*^9, 
+  3.739626821456914*^9, 3.7396312837597857`*^9, 3.739786700297858*^9, 
+  3.7397875379553967`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -602,7 +666,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"outMinv", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"outMaxv", " ", "=", " ", "20"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"outMaxv", " ", "=", " ", "15"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"Manipulate", "[", 
   RowBox[{
    RowBox[{"Show", "[", 
@@ -634,7 +698,7 @@ Cell[BoxData[{
        RowBox[{"AxesLabel", "\[Rule]", 
         RowBox[{"{", 
          RowBox[{
-         "\"\<Percent DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+         "\"\<Fraction DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
           "\"\<Stage Temp\>\""}], "}"}]}], ",", 
        RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
        RowBox[{"LabelStyle", "\[Rule]", 
@@ -647,22 +711,23 @@ Cell[BoxData[{
    RowBox[{"{", 
     RowBox[{"g", ",", "outMinv", ",", "outMaxv"}], "}"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.739102066660243*^9, 3.73910208857393*^9}, {
-  3.7391021607510853`*^9, 3.73910216756621*^9}}],
+   3.7391021607510853`*^9, 3.73910216756621*^9}, {3.739629069974334*^9, 
+   3.7396290708811626`*^9}, 3.7396312675660653`*^9}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`g$$ = 1.25, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`g$$ = 0, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`g$$], 0, 20}}, Typeset`size$$ = {576., {290., 297.}}, 
+      Hold[$CellContext`g$$], 0, 15}}, Typeset`size$$ = {576., {290., 297.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`g$539$$ = 0}, 
+    True, $CellContext`g$3173$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$539$$, 0]}, 
+        Hold[$CellContext`g$$, $CellContext`g$3173$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -676,11 +741,11 @@ $CellContext`t] == $CellContext`g$$, {$CellContext`w, 0, 1}, {$CellContext`s,
 $CellContext`outMaxv}], 1 - 
            Rescale[$CellContext`g$$, {$CellContext`outMinv, \
 $CellContext`outMaxv}], 0], 
-         AxesLabel -> {"Percent DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
+         AxesLabel -> {"Fraction DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
          None, LabelStyle -> 
          Directive[Black, FontFamily -> "Helvetica", FontSize -> 10], 
          ImageSize -> Large], $CellContext`p1], 
-      "Specifications" :> {{$CellContext`g$$, 0, 20}}, "Options" :> {}, 
+      "Specifications" :> {{$CellContext`g$$, 0, 15}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
      ImageSizeCache->{627., {337., 344.}},
      SingleEvaluation->True],
@@ -694,7 +759,9 @@ $CellContext`outMaxv}], 0],
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{3.739102091760976*^9, 3.739102171520314*^9, 
-  3.7391788045529213`*^9}]
+  3.7391788045529213`*^9, 3.7396204354592533`*^9, 3.739626821550517*^9, 
+  3.7396290715051827`*^9, 3.7396312838533883`*^9, 3.739786700407062*^9, 
+  3.739787546824086*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -741,7 +808,7 @@ Cell[BoxData[{
        RowBox[{"AxesLabel", "\[Rule]", 
         RowBox[{"{", 
          RowBox[{
-         "\"\<Percent DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+         "\"\<Fraction DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
           "\"\<Stage Temp\>\""}], "}"}]}], ",", 
        RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
        RowBox[{"LabelStyle", "\[Rule]", 
@@ -753,22 +820,23 @@ Cell[BoxData[{
     ",", 
    RowBox[{"{", 
     RowBox[{"g", ",", "outMinh", ",", "outMaxh"}], "}"}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.739102147784687*^9, 3.7391021920280924`*^9}}],
+ CellChangeTimes->{{3.739102147784687*^9, 3.7391021920280924`*^9}, 
+   3.7396312734650545`*^9}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`g$$ = 1., Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`g$$ = 0, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`g$$], 0, 1}}, Typeset`size$$ = {576., {290., 297.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`g$582$$ = 0}, 
+    True, $CellContext`g$3014$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$582$$, 0]}, 
+        Hold[$CellContext`g$$, $CellContext`g$3014$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -782,7 +850,7 @@ $CellContext`t] == $CellContext`g$$, {$CellContext`w, 0, 1}, {$CellContext`s,
 $CellContext`outMaxh}], 1 - 
            Rescale[$CellContext`g$$, {$CellContext`outMinh, \
 $CellContext`outMaxh}], 0], 
-         AxesLabel -> {"Percent DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
+         AxesLabel -> {"Fraction DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
          None, LabelStyle -> 
          Directive[Black, FontFamily -> "Helvetica", FontSize -> 10], 
          ImageSize -> Large], $CellContext`p1], 
@@ -799,7 +867,9 @@ $CellContext`outMaxh}], 0],
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.739102192293313*^9, 3.7391788046621237`*^9}]
+ CellChangeTimes->{3.739102192293313*^9, 3.7391788046621237`*^9, 
+  3.739620435584057*^9, 3.739626821675321*^9, 3.739631283962592*^9, 
+  3.739786700516266*^9, 3.7397875404378767`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -846,7 +916,7 @@ Cell[BoxData[{
        RowBox[{"AxesLabel", "\[Rule]", 
         RowBox[{"{", 
          RowBox[{
-         "\"\<Percent DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
+         "\"\<Fraction DPP\>\"", ",", "\"\<Blade Speed\>\"", ",", 
           "\"\<Stage Temp\>\""}], "}"}]}], ",", 
        RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
        RowBox[{"LabelStyle", "\[Rule]", 
@@ -858,7 +928,8 @@ Cell[BoxData[{
     ",", 
    RowBox[{"{", 
     RowBox[{"g", ",", "outMinc", ",", "outMaxc"}], "}"}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.7391022097952614`*^9, 3.739102231886361*^9}}],
+ CellChangeTimes->{{3.7391022097952614`*^9, 3.739102231886361*^9}, 
+   3.7396312772775774`*^9}],
 
 Cell[BoxData[
  TagBox[
@@ -869,11 +940,11 @@ Cell[BoxData[
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`g$$], 0, 1}}, Typeset`size$$ = {576., {290., 297.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`g$626$$ = 0}, 
+    True, $CellContext`g$3105$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`g$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`g$$, $CellContext`g$626$$, 0]}, 
+        Hold[$CellContext`g$$, $CellContext`g$3105$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -887,7 +958,7 @@ $CellContext`t] == $CellContext`g$$, {$CellContext`w, 0, 1}, {$CellContext`s,
 $CellContext`outMaxc}], 1 - 
            Rescale[$CellContext`g$$, {$CellContext`outMinc, \
 $CellContext`outMaxc}], 0], 
-         AxesLabel -> {"Percent DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
+         AxesLabel -> {"Fraction DPP", "Blade Speed", "Stage Temp"}, Mesh -> 
          None, LabelStyle -> 
          Directive[Black, FontFamily -> "Helvetica", FontSize -> 10], 
          ImageSize -> Large], $CellContext`p1], 
@@ -904,7 +975,9 @@ $CellContext`outMaxc}], 0],
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.739102236171091*^9, 3.739178804771327*^9}]
+ CellChangeTimes->{3.739102236171091*^9, 3.739178804771327*^9, 
+  3.73962043567766*^9, 3.7396268217845244`*^9, 3.7396312840561953`*^9, 
+  3.739786700765874*^9, 3.7397875429027557`*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -930,50 +1003,60 @@ Cell[CellGroupData[{
 Cell[580, 22, 143, 1, 101, "Title"],
 Cell[CellGroupData[{
 Cell[748, 27, 183, 2, 72, "Chapter"],
-Cell[934, 31, 7526, 210, 249, "Input"]
+Cell[934, 31, 8248, 223, 227, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8497, 246, 157, 3, 72, "Chapter"],
-Cell[8657, 251, 2583, 75, 280, "Input"]
+Cell[9219, 259, 157, 3, 72, "Chapter"],
+Cell[9379, 264, 2583, 75, 280, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11277, 331, 202, 4, 123, "Chapter"],
+Cell[11999, 344, 202, 4, 72, "Chapter"],
 Cell[CellGroupData[{
-Cell[11504, 339, 105, 1, 70, "Section"],
+Cell[12226, 352, 105, 1, 70, "Section"],
 Cell[CellGroupData[{
-Cell[11634, 344, 3053, 77, 183, "Input"],
-Cell[14690, 423, 2699, 51, 698, "Output"]
+Cell[12356, 357, 621, 15, 30, "Input"],
+Cell[12980, 374, 447, 10, 33, "Output"]
+}, Open  ]],
+Cell[13442, 387, 3189, 79, 183, "Input"],
+Cell[16634, 468, 1824, 46, 69, "Input"],
+Cell[CellGroupData[{
+Cell[18483, 518, 82, 1, 30, "Input"],
+Cell[18568, 521, 137, 2, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18742, 528, 229, 4, 30, "Input"],
+Cell[18974, 534, 172, 2, 30, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[17450, 481, 134, 1, 72, "Chapter"],
+Cell[19207, 543, 134, 1, 72, "Chapter"],
 Cell[CellGroupData[{
-Cell[17609, 486, 121, 2, 70, "Section"],
+Cell[19366, 548, 121, 2, 70, "Section"],
 Cell[CellGroupData[{
-Cell[17755, 492, 2000, 50, 88, "Input"],
-Cell[19758, 544, 2243, 45, 698, "Output"]
+Cell[19512, 554, 2049, 50, 88, "Input"],
+Cell[21564, 606, 2368, 47, 698, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22050, 595, 104, 1, 70, "Section"],
+Cell[23981, 659, 104, 1, 70, "Section"],
 Cell[CellGroupData[{
-Cell[22179, 600, 1945, 49, 126, "Input"],
-Cell[24127, 651, 2223, 45, 698, "Output"]
+Cell[24110, 664, 2023, 50, 88, "Input"],
+Cell[26136, 716, 2367, 47, 698, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26399, 702, 99, 1, 70, "Section"],
+Cell[28552, 769, 99, 1, 70, "Section"],
 Cell[CellGroupData[{
-Cell[26523, 707, 1899, 48, 126, "Input"],
-Cell[28425, 757, 2196, 44, 698, "Output"]
+Cell[28676, 774, 1928, 49, 88, "Input"],
+Cell[30607, 825, 2316, 46, 698, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30670, 807, 94, 1, 70, "Section"],
+Cell[32972, 877, 94, 1, 70, "Section"],
 Cell[CellGroupData[{
-Cell[30789, 812, 1900, 48, 126, "Input"],
-Cell[32692, 862, 2194, 44, 698, "Output"]
+Cell[33091, 882, 1929, 49, 88, "Input"],
+Cell[35023, 933, 2318, 46, 698, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

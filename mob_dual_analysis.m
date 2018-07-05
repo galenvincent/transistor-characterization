@@ -228,6 +228,21 @@ for i = 1:nchan
     DD(i).forRFactor=(((sqrt(abs(idmax))-sqrt(for_id_0))/vgmax)^2)/(DD(i).forM^2);  
 end
 
+%% Calculate the anisotropy in the chip as a whole (rows 7,8,9)
+horizForMob = mean([DD(mod([DD.ChanCol],2)==1).forMaxMob]);
+vertForMob = mean([DD(mod([DD.ChanCol],2)==0).forMaxMob]);
+
+horizBackMob = mean([DD(mod([DD.ChanCol],2)==1).backMaxMob]);
+vertBackMob =  mean([DD(mod([DD.ChanCol],2)==0).backMaxMob]);
+
+forAni = vertForMob/horizForMob;
+backAni = vertBackMob/horizBackMob;
+
+for i = 1:nchan
+   DD(i).anisotropyFor = forAni;
+   DD(i).anisotropyBack = backAni;
+end
+
 end
 
 

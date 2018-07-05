@@ -2,7 +2,7 @@
 % forward and reverse sweep. Use the output of the calc_max_mob() function
 % to plot
 
-function [ax, ax2] = plot_dual_tcurve_fit(dd,devNums)
+function [ax, ax2, f] = plot_dual_tcurve_fit(dd,devNums)
 
 if abs(dd(devNums).backVt) > 1000
     fprintf('SD Short - Cannot plot for dev #%i \n',devNums);
@@ -61,6 +61,7 @@ else
     set(ax2(2),'LineWidth',1);
     ax.Children(2).LineWidth=1;
     ax2(2).Children(1).LineWidth=1;
+    
 end
 
 end
