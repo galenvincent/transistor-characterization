@@ -128,6 +128,8 @@ for i = 1:nchan
     for_sign = sign(for_diff(end));
     back_sign = sign(back_diff(1));
     current_sign = sign(DD(i).forward_id{round(height(DD(i).forward_id)/2),1});
+    for_stop = -1;
+    back_stop = -1;
     
     for j = 1:length(back_diff)
         if ((sign(back_diff(j)) ~= back_sign) || (sign(DD(i).backward_id{j,1}) ~= current_sign)) && (j > vg_limit)
@@ -140,6 +142,18 @@ for i = 1:nchan
             for_stop = j;
             break
         end
+    end
+    
+    if for_stop == -1 || back_stop == -1
+        DD(i).backMaxMob = 0;
+        DD(i).backVt = 1000;
+        DD(i).backM = 0;
+        DD(i).forMaxMob = 0;
+        DD(i).forVt = 1000;
+        DD(i).forM = 0;
+        DD(i).backMobSweep = 0;
+        DD(i).forMobSweep = 0;
+       continue 
     end
     
     back_loop_stop = back_stop-vg_limit+1;

@@ -5,6 +5,8 @@ function dd_stats = calc_avg(dd,rows)
 % rows = 0 in order to average the whole thing
 
 dd = metric_map(dd);
+close;
+close;
 
 nchan = length(dd);
 indToAvgVert= [];

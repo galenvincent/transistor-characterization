@@ -94,6 +94,9 @@ end
 des_op.x0 = xin;
 des_op.xout = xout;
 des_op.valout = valout;
+
+des_op.maxval = max(abs(des_op.valout));
+des_op.xmax = des_op.xout(abs(des_op.valout) == des_op.maxval,:);
 %des_op.fun = dtot;
 
 end

@@ -1,12 +1,14 @@
 % Fit data with some kind of response surface
 
 
-function lms = fit_res_surf(datatab)
+function lms = fit_res_surf(datatabin)
 %datatab is the table returned from read_database
 
 % For all values that are NaN, or weren't able to be measured becasue of
 % device failure, change the metrics to be 25% worse than the worst metric
 % actually measured.
+
+datatab = datatabin(:,1:end-1);
 
 %Is this cool for vt?? maybe not because it could be positive or negative
 for i = [4,8,10]
@@ -27,10 +29,10 @@ datatab.HystFactorW = find_weights(datatab.HystFactorSTD);
 datatab.CurveFactorForW = find_weights(datatab.CurveFactorForSTD);
 
 % Do a weighted linear model fit
-lms.mob = fitlm(datatab,'RTMobFor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp','Weights',datatab.RTMobForW);
-lms.vt = fitlm(datatab,'VtFor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp','Weights',datatab.VtForW);
-lms.hyst = fitlm(datatab,'HystFactor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp','Weights',datatab.HystFactorW);
-lms.curve = fitlm(datatab,'CurveFactorFor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp','Weights',datatab.CurveFactorForW);
+lms.mob = fitlm(datatab,'RTMobFor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp');%,'Weights',datatab.RTMobForW);
+lms.vt = fitlm(datatab,'VtFor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp');%,'Weights',datatab.VtForW);
+lms.hyst = fitlm(datatab,'HystFactor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp');%,'Weights',datatab.HystFactorW);
+lms.curve = fitlm(datatab,'CurveFactorFor~wfSemiPoly + BladeVel + StageTemp + wfSemiPoly^2+BladeVel^2+StageTemp^2 + wfSemiPoly*BladeVel + BladeVel*StageTemp + wfSemiPoly*StageTemp');%,'Weights',datatab.CurveFactorForW);
 
 end
 

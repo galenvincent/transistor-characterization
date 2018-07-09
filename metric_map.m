@@ -9,6 +9,8 @@ vt_cutoff = 100;
 dd_med = dd_old(~(abs([dd_old(:).backVt])>vt_cutoff));
 dd = dd_med(~(abs([dd_med(:).forVt])>vt_cutoff));
 
+numdeleted = 0;
+
 metric_map_help(dd);
 
 while true
@@ -17,6 +19,7 @@ while true
         break
     end
     if row == 0
+       close;
        close;
        metric_map_help(dd);
        continue

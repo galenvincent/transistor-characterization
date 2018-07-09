@@ -5,7 +5,7 @@
 % Possibly add errors in quadrature and caclulate an overall error for the
 % dtot plot. 
 
-function [fitparams, fitparamstats] = fit_res_surf_bootstrap(datatab,n)
+function [fitparams, fitparamstats] = fit_res_surf_bootstrap(datatabin,n)
 
 %datatab is the table returned from read_database
 % n is the number of bootstrap re-samplings that you would like to perform
@@ -13,6 +13,8 @@ function [fitparams, fitparamstats] = fit_res_surf_bootstrap(datatab,n)
 % For all values that are NaN, or weren't able to be measured becasue of
 % device failure, change the metrics to be 25% worse than the worst metric
 % actually measured.
+
+datatab = datatabin(:,1:end-1);
 
 %Is this cool for vt?? maybe not because it could be positive or negative
 for i = [4,8,10]
