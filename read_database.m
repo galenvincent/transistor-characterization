@@ -56,11 +56,17 @@ for i = 1:height(cutdata_OTS)
             'CurveFactorForHoriz','CurveFactorForHorizSTD'};
         fitdata.Anisotropy(i) = {'Horizontal'};
         fitdata{i,1:end-1} = cutdata_OTS{i,toKeep};
+    elseif ani == 1 || ani == 0
+        toKeep = {'wfSemiPoly','BladeVel','StageTemp','RTMobForVert',...
+            'RTMobForVertSTD','VtForVert','VtForVertSTD','HystFactorVert','HystFactorVertSTD',...
+            'CurveFactorForVert','CurveFactorForVertSTD'};
+        fitdata.Anisotropy(i) = {'Unknown - Used all data'};
+        fitdata{i,1:end-1} = cutdata_OTS{i,toKeep};
     else
         toKeep = {'wfSemiPoly','BladeVel','StageTemp','RTMobForHoriz',...
             'RTMobForHorizSTD','VtForHoriz','VtForHorizSTD','HystFactorHoriz','HystFactorHorizSTD',...
             'CurveFactorForHoriz','CurveFactorForHorizSTD'};
-        fitdata.Anisotropy(i) = {'NaN'};
+        fitdata.Anisotropy(i) = {'Unknown - No data'};
         fitdata{i,1:end-1} = cutdata_OTS{i,toKeep};
     end
 end

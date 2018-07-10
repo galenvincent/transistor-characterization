@@ -17,6 +17,7 @@ function [fitparams, fitparamstats] = fit_res_surf_bootstrap(datatabin,n)
 datatab = datatabin(:,1:end-1);
 
 %Is this cool for vt?? maybe not because it could be positive or negative
+    %Answer - yes it is because we end up fitting absolute value of vt
 for i = [4,8,10]
     datatab{isnan(datatab{:,'RTMobForSTD'}),:}(:,i) = min(datatab{:,i})*.75;
 end

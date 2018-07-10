@@ -1,12 +1,6 @@
-% function to analyze how to mobility changes over the course of a full
-% transfer curve, and how the threshold voltage changes with it
-
-%NILS: Right now, mobility sweeps over a range of voltages which ends when
-%the drain current either falls below zero, or begins to increase instead
-%of decrease. With any sort of noisy data, this will produce an incorrect
-%range of mobilities to sweep over.
-%This might start to cause problems at some point, but it's working
-%perfectly for my data right now, so I'm going to stick with it.
+% function to analyze the maximum mobility, threshold voltage, curvature,
+% hysterisis, and r factor for either p or n type transistors based on
+% transfer curve data from the CASCADE machine.
 
 function DD = mob_dual_analysis(folderPath,vg_limit,chanType,semiType)
 
@@ -243,18 +237,32 @@ for i = 1:nchan
 end
 
 %% Calculate the anisotropy in the chip as a whole (rows 7,8,9)
-horizForMob = mean([DD(mod([DD.ChanCol],2)==1).forMaxMob]);
-vertForMob = mean([DD(mod([DD.ChanCol],2)==0).forMaxMob]);
 
-horizBackMob = mean([DD(mod([DD.ChanCol],2)==1).backMaxMob]);
-vertBackMob =  mean([DD(mod([DD.ChanCol],2)==0).backMaxMob]);
-
-forAni = vertForMob/horizForMob;
-backAni = vertBackMob/horizBackMob;
-
-for i = 1:nchan
-   DD(i).anisotropyFor = forAni;
-   DD(i).anisotropyBack = backAni;
+switch chanType
+    case 1
+        
+        horizForMob = mean([DD(mod([DD.ChanCol],2)==1).forMaxMob]);
+        vertForMob = mean([DD(mod([DD.ChanCol],2)==0).forMaxMob]);
+        
+        horizBackMob = mean([DD(mod([DD.ChanCol],2)==1).backMaxMob]);
+        vertBackMob =  mean([DD(mod([DD.ChanCol],2)==0).backMaxMob]);
+        
+        forAni = vertForMob/horizForMob;
+        backAni = vertBackMob/horizBackMob;
+        
+        for i = 1:nchan
+            DD(i).chanType = 1;
+            DD(i).anisotropyFor = forAni;
+            DD(i).anisotropyBack = backAni;
+        end
+        
+    case {2,3,4}
+        
+        for i = 1:nchan 
+            DD(i).chanType = 2;
+            DD(i).anisotropyFor = 0; % This is to indicate than all the channels are in the same direction. All values will be placed into the vertical data 
+            DD(i).anisotropyBack = 0;
+        end
 end
 
 end

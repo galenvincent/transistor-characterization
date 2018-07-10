@@ -16,12 +16,21 @@ if rows == 0
     rows = 1:9;
 end
 
-for i = 1:nchan
-    if ismember(dd(i).ChanRow,rows) && mod(dd(i).ChanCol,2) == 0
-        indToAvgVert = [indToAvgVert,i];
-    elseif ismember(dd(i).ChanRow,rows) && mod(dd(i).ChanCol,2) == 1
-        indToAvgHoriz = [indToAvgHoriz,i];
-    end
+switch dd(1).chanType
+    case 1
+        for i = 1:nchan
+            if ismember(dd(i).ChanRow,rows) && mod(dd(i).ChanCol,2) == 0
+                indToAvgVert = [indToAvgVert,i];
+            elseif ismember(dd(i).ChanRow,rows) && mod(dd(i).ChanCol,2) == 1
+                indToAvgHoriz = [indToAvgHoriz,i];
+            end
+        end
+    case 2
+        for i = 1:nchan 
+           if ismember(dd(i).ChanRow,rows)
+               indToAvgVert = [indToAvgVert,i];
+           end
+        end
 end
 
 dd_stats.mob.backVertMean = mean([dd(indToAvgVert).backMaxMob]);
