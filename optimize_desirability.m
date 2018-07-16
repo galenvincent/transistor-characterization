@@ -18,13 +18,13 @@ function des_op = optimize_desirability(lms, boot)
 % Individual desirability functions
 % Mobility - Maximize - d1
 L1 = 0;
-T1 = 10;
+T1 = 1.5;
 s1 = 1;
 
 d1 = @(m)((m - L1)./(T1-L1)).^s1;
 
 % Vt - Target zero (abs value) - d2
-U2 = 100;
+U2 = 1;
 T2 = 0;
 s2 = 1;
 
@@ -64,7 +64,7 @@ dtot = @(x)(-1)*(d1(m(x)).*d2(v(x)).*d3(h(x)).*d4(c(x))).^(1/4);
 
 
 % Applying the minimization function
-lb = [0,0,30]; %lower search bound
+lb = [0,0,40]; %lower search bound
 ub = [1,20,130]; %upper bound for search
 A = [];
 b = [];

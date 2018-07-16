@@ -4,9 +4,13 @@
 
 function DD = mob_dual_analysis(folderPath,vg_limit,chanType,semiType)
 
-% chanType 1 = 180613gbv, 180619gbv1,2,3,4,5, 180625gbv, 180627gbv
+% chanType 1 = 180613gbv, 180619gbv1,2,3,4,5, 180625gbv, 180627gbv,
+% 180702gbv
+
 % chanType 2 = 180606gbv1,4,5, 180619gbv6??(check)
-% chanType 3 = 180606gbv2
+
+% chanType 3 = 180606gbv2, 180710gbv
+
 % chanType 4 = Nils' data
 
 % semiType is either 'p' or 'n'
@@ -22,26 +26,38 @@ switch chanType
     case 2
         L_vec = [1,2,5,10,20,25,50,80,100]; % Vector of channel lengths
         W_vec = [400,400,400,500,500,800,800,1000,1000]; % Vector of channel widths
-        d_gate = 200E-9; %(180606gbv);
+        d_gate = 200E-9;
         DE = 3.9; %SiO2
+        for i = 1:length(DD)
+            DD(i).chanType = 2;
+        end
         
     case 3
         L_vec = [1,2,5,10,20,25,50,80,100]; % Vector of channel lengths
         W_vec = [1000,1000,1000,1000,1000,1000,1000,1000,1000]; % Vector of channel widths
-        d_gate = 200E-9; %(180606gbv);
+        d_gate = 200E-9;
         DE = 3.9; %SiO2
+        for i = 1:length(DD)
+            DD(i).chanType = 3;
+        end
         
     case 1
         L_vec = [1,5,5,10,20,25,50,80,100]; % Vector of channel lengths
         W_vec = [1000,1000,1000,1000,1000,1000,1000,1000,1000]; % Vector of channel widths
-        d_gate = 57E-9; %(180613gbv);
+        d_gate = 57E-9;
         DE = 3.9;%SiO2
+        for i = 1:length(DD)
+            DD(i).chanType = 1;
+        end
         
     case 4
         L_vec = fliplr([50,100,50,100,50,100,50,100]);
         W_vec = [1000,1000,1000,1000,1000,1000,1000,1000,1000]; % Vector of channel widths
-        d_gate = 650E-9; %(180613gbv);
+        d_gate = 650E-9;
         DE = 2.1; %Whatever Nils used
+        for i = 1:length(DD)
+            DD(i).chanType = 4;
+        end
         
     otherwise
         print('Enter valid type');
@@ -196,6 +212,20 @@ for i = 1:nchan
     end
 end
 
+%% Calculate normalized vt for each channel
+% This normalizes vt so that sweeps for different chip types, with
+% different thicknesses of silicon, can be compared on more even footing
+switch semiType
+    case 'p'
+        vgmax = min(table2array(DD(1).vg));
+    case 'n'
+        vgmax = max(table2array(DD(1).vg));
+end
+for i = 1:nchan
+    DD(i).forVtFactor = abs(DD(i).forVt/vgmax);
+    DD(i).backVtFactor = abs(DD(i).backVt/vgmax);
+end
+
 %% Calculate Curve Factor for each channel
 for i = 1:nchan
     back_ideal_area = DD(i).backMaxMob*length(DD(i).backMobSweep);
@@ -236,34 +266,6 @@ for i = 1:nchan
     DD(i).forRFactor=(((sqrt(abs(idmax))-sqrt(for_id_0))/vgmax)^2)/(DD(i).forM^2);  
 end
 
-%% Calculate the anisotropy in the chip as a whole (rows 7,8,9)
-
-switch chanType
-    case 1
-        
-        horizForMob = mean([DD(mod([DD.ChanCol],2)==1).forMaxMob]);
-        vertForMob = mean([DD(mod([DD.ChanCol],2)==0).forMaxMob]);
-        
-        horizBackMob = mean([DD(mod([DD.ChanCol],2)==1).backMaxMob]);
-        vertBackMob =  mean([DD(mod([DD.ChanCol],2)==0).backMaxMob]);
-        
-        forAni = vertForMob/horizForMob;
-        backAni = vertBackMob/horizBackMob;
-        
-        for i = 1:nchan
-            DD(i).chanType = 1;
-            DD(i).anisotropyFor = forAni;
-            DD(i).anisotropyBack = backAni;
-        end
-        
-    case {2,3,4}
-        
-        for i = 1:nchan 
-            DD(i).chanType = 2;
-            DD(i).anisotropyFor = 0; % This is to indicate than all the channels are in the same direction. All values will be placed into the vertical data 
-            DD(i).anisotropyBack = 0;
-        end
-end
 
 end
 
