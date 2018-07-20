@@ -24,21 +24,21 @@ s1 = 1;
 d1 = @(m)((m - L1)./(T1-L1)).^s1;
 
 % Vt - Target zero (abs value) - d2
-U2 = 1;
+U2 = .5;
 T2 = 0;
 s2 = 1;
 
 d2 = @(vt)((abs(vt) - U2)./(T2 - U2)).^s2;
 
 % Hyst - Maximize to 1 - d3
-L3 = 0;
+L3 = 0.4;
 T3 = 1;
 s3 = 1;
 
 d3 = @(hyst)((hyst - L3)./(T3 - L3)).^s3;
 
 % Curve - Maximize to 1 - d4
-L4 = 0;
+L4 = 0.4;
 T4 = 1;
 s4 = 1;
 

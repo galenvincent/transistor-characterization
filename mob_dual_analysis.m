@@ -9,7 +9,7 @@ function DD = mob_dual_analysis(folderPath,vg_limit,chanType,semiType)
 
 % chanType 2 = 180606gbv1,4,5, 180619gbv6??(check)
 
-% chanType 3 = 180606gbv2, 180710gbv
+% chanType 3 = 180606gbv2, 180710gbv, 180717gbv
 
 % chanType 4 = Nils' data
 

@@ -1,30 +1,21 @@
 % Fit data with some kind of response surface
 
 
-function [lms, datatab] = fit_res_surf(datatabin, n, out)
+function [lms, datatab] = fit_res_surf(datatabin, n, out, fix)
 %datatabin is the table returned from read_database
 %n is the number of bootstrappings you would like to perform
-
-% For all values that are NaN, or weren't able to be measured becasue of
-% device failure, change the metrics to be 25% worse than the worst metric
-% actually measured.
 
 %out = 1 means output the coefficiants (for mathematica usage)
 %out = 0 means do not output the coefficients
 
-datatab = datatabin(:,1:end-1);
+%fix = 1 means fix the bad data points
+%fix = 0 means get rid of the bad data points
 
-for i = [4,8,10]
-    datatab{isnan(datatab{:,'RTMobForSTD'}),:}(:,i) = min(datatab{:,i})*.75;
-end
-datatab{isnan(datatab{:,'RTMobForSTD'}),:}(:,6) = max(abs(datatab{:,6}))*1.25;
-
-% Turn all vt values into positives for the fit.
-% datatab{:,'VtFor'} = abs(datatab{:,'VtFor'});
-
-% Make the standatd deviation equal to the min of the standard deviations
-for i = [5,7,9,11]
-    datatab{isnan(datatab{:,'CurveFactorForSTD'}),:}(:,i) = nanmin(datatab{~isnan(datatab{:,'CurveFactorForSTD'}),i});
+if fix == 0
+    datatab = datatabin(:,1:end-1);
+    datatab = datatab(~isnan(datatab{:,'RTMobFor'}),:);
+elseif fix == 1
+    datatab = fix_bad_data(datatabin);
 end
 
 % Do a linear model fit
