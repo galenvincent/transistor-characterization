@@ -137,7 +137,12 @@ for i = 1:nchan
     for_diff = diff(table2array(DD(i).forward_id));
     for_sign = sign(for_diff(end));
     back_sign = sign(back_diff(1));
-    current_sign = sign(DD(i).forward_id{round(height(DD(i).forward_id)/2),1});
+    if semiType == 'n'
+        current_sign = -1;
+    elseif semiType == 'p'
+        current_sign = 1;
+    end
+    %current_sign = sign(DD(i).forward_id{5,1});
     for_stop = -1;
     back_stop = -1;
     
