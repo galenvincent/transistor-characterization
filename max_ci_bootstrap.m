@@ -1,5 +1,5 @@
 
-function max_ci_bootstrap(datatabin, fix, n)
+function [op,ind] = max_ci_bootstrap(datatabin, fix, n)
 
 % fix = 0 means do not fix the bad data points
 % fix = 1 means fix the bad data points
@@ -18,6 +18,8 @@ sample_tab = datatab(:,[1,2,3,4,6,8,10]);
 op.xout = zeros(n,3);
 op.valout = zeros(n,1);
 
+tic
+
 for i = 1:n
     sample_tab{:,'RTMobFor'} = normrnd(datatab{:,'RTMobFor'},datatab{:,'RTMobForSTD'});
     sample_tab{:,'VtNormFor'} = normrnd(datatab{:,'VtNormFor'},datatab{:,'VtNormForSTD'});
@@ -34,10 +36,19 @@ for i = 1:n
     des_op = des_op_special(lms);
     op.xout(i,:) = des_op.xout;
     op.valout(i) = des_op.valout;
+    disp(i);
 end
 
-print('done');
+disp('done');
+toc
 
+op.mean = mean(op.xout);
+op.sorted = sort(op.xout);
+
+% find the 95% AI around the mean
+ind = (round((n-1)*(1-.95)/2));
+op.lower = op.sorted(ind+1,:);
+op.upper = op.sorted(n-ind,:);
 
 end
 
@@ -103,7 +114,7 @@ beq = [];
 x0 = [.3,5,100];
 [xout, valout] = fmincon(dtot,x0,A,b,Aeq,beq,lb,ub);
 
-des_op.x0 = xin;
+des_op.x0 = x0;
 des_op.xout = xout;
 des_op.valout = valout;
 

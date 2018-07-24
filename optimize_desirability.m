@@ -65,7 +65,7 @@ dtot = @(x)(-1)*(d1(m(x)).*d2(v(x)).*d3(h(x)).*d4(c(x))).^(1/4);
 
 % Applying the minimization function
 lb = [0,0,40]; %lower search bound
-ub = [1,20,110]; %upper bound for search
+ub = [1,15,130]; %upper bound for search
 A = [];
 b = [];
 Aeq = [];
@@ -73,7 +73,7 @@ beq = [];
 
 % Sweep various input parameters to see if different results come out
 wtpSweep = linspace(0,1,3);
-speedSweep = linspace(0,15,3);
+speedSweep = linspace(0,10,3);
 tempSweep = linspace(40,100,3);
 xin = zeros(27,3);
 xout = zeros(27,3);
@@ -86,6 +86,7 @@ for i = 1:length(wtpSweep)
             x0 = [wtpSweep(i),speedSweep(j),tempSweep(k)];
             xin(cnt,:) = x0;
             [xout(cnt,:),valout(cnt)] = fmincon(dtot,x0,A,b,Aeq,beq,lb,ub);
+            disp(cnt);
             cnt = cnt+1;
         end
     end
