@@ -1,5 +1,8 @@
-% Script to run the full analysis for data
+% Galen Vincent - Summer 2018
+% This script shows the order of operation for processing data with the
+% functions from this code
 
+% Read data files and calculate metrics for each channel in each chip
 g61 = mob_dual_analysis('Z:\data\180606gbv1\transfer',10,2,'p');
 g62 = mob_dual_analysis('Z:\data\180606gbv2\transfer',10,3,'p');
 g64 = mob_dual_analysis('Z:\data\180606gbv4\transfer',10,2,'p');
@@ -42,6 +45,7 @@ g83 = mob_dual_analysis('Z:\data\180801gbv3\transfer',10,3,'p');
 g84 = mob_dual_analysis('Z:\data\180801gbv4\transfer',10,3,'p');
 g85 = mob_dual_analysis('Z:\data\180801gbv5\transfer',10,3,'p');
 
+% Calculate statistics for each metric for each chip
 s61 = calc_avg(g61,[6,7,8,9]);
 s62 = calc_avg(g62,[6,7,8,9]);
 s64 = calc_avg(g64,[6,7,8,9]);
@@ -84,12 +88,18 @@ s83 = calc_avg(g83,[7,8,9]);
 s84 = calc_avg(g84,[7,8,9]);
 s85 = calc_avg(g85,[7,8,9]);
 
+% optput these statristics to a csv file
 output_stats('Z:\data\180801_data.csv',[s81 s83 s84 s85])
+%copy this csv file into the DPP_database excel file 
 
+% read data from the excel database file
 data = read_database('Z:\DPP_database_wanisotropy.csv',[24:72]);
 
+% fit reponse surface to the data read in from excel database
 [lms, datanew] = fit_res_surf(data,1,1,0);
 
+% optimize the desirability of the response surface fit in the previous step
 des_op = optimize_desirability(lms);
 
+% Plot the results of the data read in from the database file
 results_plot(datanew);

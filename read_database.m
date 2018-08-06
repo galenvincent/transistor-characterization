@@ -1,10 +1,19 @@
-% Import the data that we need from the database file
+% Galen Vincent - Summer 2018
+% Import the data that we need from the DPP_database file
 
 function fitdata = read_database(filePath,rows)
-% rows = array of rows that you want to focus on (the gbvs probably)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% filepath = filepath to the csv file for the DPP_databsae
+
+% rows = array of rows that you want to focus on
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% read the full csv file
 fulldata = readtable(filePath);
 
+% Cut the data down to only the outputs of the mob_dual_analysis function
 cutdata = fulldata(rows,{'x___Author','wfSemiPoly','SubsTreat','BladeVel','StageTemp',...
     'RTMobForVert','RTMobForVertSTD','RTMobForHoriz','RTMobForHorizSTD',...
     'RTMobBackVert','RTMobBackVertSTD','RTMobBackHoriz','RTMobBackHorizSTD',...

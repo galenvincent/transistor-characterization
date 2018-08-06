@@ -1,7 +1,15 @@
-% Function to get an idea for what each of the points we have
-% desirabilities are
+% Galen Vincent - Summer 2018 
+% Function to plot the data points in design space with color scale
+% indicating desirability
 
 function data_w_des = results_plot(datatabin)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% datatabin = table from read_database function
+
+%returns data table with desirabilities appended to the last column
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Individual desirability functions
 % Mobility - Maximize - d1
@@ -41,11 +49,13 @@ desirability = zeros(height(datatabin),1);
 
 data_w_des = datatabin;
 
+%Calculate desirability for each chip
 for i = 1:length(desirability)
    desirability(i) = dtot(results(i,:)); 
    data_w_des{i,'desirability'}= desirability(i);
 end
 
+% Split up data into chips that worked and those that were inoperable
 data_nan = data_w_des(isnan(data_w_des{:,'desirability'}),:);
 data_good = data_w_des(~isnan(data_w_des{:,'desirability'}),:);
 

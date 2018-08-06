@@ -1,4 +1,5 @@
-% grp experimentation
+% Galen Vincent - Summer 2018
+% Experimenting with multivariate GPR modeling
 
 x1 = [datanew{:,'BladeVel'}];
 x2 = [datanew{:,'StageTemp'}];

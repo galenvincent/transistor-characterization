@@ -1,9 +1,16 @@
 % Function to plot the transfer curves with mobility fits for both the
-% forward and reverse sweep. Use the output of the calc_max_mob() function
-% to plot
+% forward and reverse sweep.
 
 function [ax, ax2, f] = plot_dual_tcurve_fit(dd,devNums)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% dd = struct from mob_dual_analysis
+
+% devNums = index in the dd onject of the channel to plot
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% If the threshold voltage is too large, indicate a fault and do not plot
 if abs(dd(devNums).backVt) > 1000
     fprintf('SD Short - Cannot plot for dev #%i \n',devNums);
 elseif abs(dd(devNums).backVt) > 1000
@@ -21,8 +28,10 @@ else
         vg = dd(d).vg{:,1};
         id = dd(d).id{:,1};
         
+        % Plot raw and sqrt transfer curves on dual axis plot
         ax2 = plotyy(vg,sqrt(abs(id)),vg,abs(id),'plot','semilogy');
-
+        
+        % Plot max mobility slopes for forward and backward sweeps
         if dd(devNums).semiType == 'n'
             fplot(ax,@(x) sqrt(-backfit(x)),[dd(d).backVt,max(vg)],'--k','LineWidth',1);
             fplot(ax,@(x) sqrt(-forfit(x)),[dd(d).forVt,max(vg)],'--k','LineWidth',1);

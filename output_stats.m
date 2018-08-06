@@ -1,13 +1,21 @@
-% Function to output stats files into a very helpful csv file
-% should be correct for p type devices
+% Galen Vincent - Summer 2018
+% Function to output stats files into csv for copying into the DPP_database
 
 function output_stats(fileName,stats_list)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% filename = the filepath + filename for the csv file you would like to
+% output this data to
+
+% stats_list = list of objects from calc_avg that you would like to output
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 len = length(stats_list);
 
 out = zeros(len,46);
 
 for i = 1:len
-    % forward sweep first
     %Mobility
     out(i,1) = stats_list(i).mob.forVertMean;
     out(i,2) = stats_list(i).mob.forVertSTD;
@@ -18,6 +26,7 @@ for i = 1:len
     out(i,6) = stats_list(i).mob.backVertSTD;
     out(i,7) = stats_list(i).mob.backHorizMean;
     out(i,8) = stats_list(i).mob.backHorizSTD;
+    
     %Vt
     out(i,9) = stats_list(i).vt.forVertMean;
     out(i,10) = stats_list(i).vt.forVertSTD;
@@ -46,6 +55,7 @@ for i = 1:len
     
     out(i,27) = stats_list(i).hyst.HorizMean;
     out(i,28) = stats_list(i).hyst.HorizSTD;
+    
     %Curve
     out(i,29) = stats_list(i).curv.forVertMean;
     out(i,30) = stats_list(i).curv.forVertSTD;
@@ -56,6 +66,7 @@ for i = 1:len
     out(i,34) = stats_list(i).curv.backVertSTD;
     out(i,35) = stats_list(i).curv.backHorizMean;
     out(i,36) = stats_list(i).curv.backHorizSTD;
+    
     %R
     out(i,37) = stats_list(i).r.forVertMean;
     out(i,38) = stats_list(i).r.forVertSTD;
@@ -66,7 +77,8 @@ for i = 1:len
     out(i,42) = stats_list(i).r.backVertSTD;
     out(i,43) = stats_list(i).r.backHorizMean;
     out(i,44) = stats_list(i).r.backHorizSTD;
-    %Ani
+    
+    %Anisotropy
     out(i,45) = stats_list(i).aniFor;
     out(i,46) = stats_list(i).aniBack;
 end

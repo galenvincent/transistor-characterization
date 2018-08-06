@@ -1,21 +1,26 @@
-% function to fill the data points for which coating did not happen
+% Galen Vincent - Summer 2018
+% Function to fix the inoperable data points for fit_res_surf
 
-function datatab = fix_bad_data(datatabin)
 % For all values that are NaN, or weren't able to be measured becasue of
 % device failure, change the metrics to be 25% worse than the worst metric
-% actually measured.
+% actually measured
+
+function datatab = fix_bad_data(datatabin)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% datatabin = data table from read_database
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 datatab = datatabin(:,1:end-1);
 
-for i = [4,8,10]
+% Make all metrics that are NaN 25% worse than the lowest measured
+for i = [4,6,8,10]
     datatab{isnan(datatab{:,'RTMobForSTD'}),:}(:,i) = min(datatab{:,i})*.75;
 end
-datatab{isnan(datatab{:,'RTMobForSTD'}),:}(:,6) = max(abs(datatab{:,6}))*1.25;
 
-% Turn all vt values into positives for the fit.
-% datatab{:,'VtFor'} = abs(datatab{:,'VtFor'});
-
-% Make the standatd deviation equal to the min of the standard deviations
+% Make the standatd deviation for these metrics equal to the minimum of the
+% standard deviations measured
 for i = [5,7,9,11]
     datatab{isnan(datatab{:,'CurveFactorForSTD'}),:}(:,i) = nanmin(datatab{~isnan(datatab{:,'CurveFactorForSTD'}),i});
 end

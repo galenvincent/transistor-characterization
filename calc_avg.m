@@ -1,13 +1,25 @@
-% Function to average the important metrics from the analysis function
+% Galen Vincent - Summer 2018
+% Function to average the important metrics from mob_dual_analysis function
 
 function dd_stats = calc_avg(dd,rows)
-% rows = vector holding the row numbers you would like to average
-% rows = 0 in order to average the whole thing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% dd = the struct output from mob_dual_analysis that you would like to take
+% averages of the data from
+
+% rows = vector holding the row numbers of the chip that you would like to average
+% rows = 0 in order to average every row number
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Go through and delete any of the channels that are disfunctional using
+% the metric_map function
 dd = metric_map(dd);
 close;
 close;
 
+% Set up vectors to hold the indices to average based on the orientation of
+% the chip (if dealing with anisotropy)
 nchan = length(dd);
 indToAvgVert= [];
 indToAvgHoriz = [];
@@ -16,8 +28,10 @@ if rows == 0
     rows = 1:9;
 end
 
+% Sweep through chip represented by dd, keeping track of the indices that
+% correspond to the requested rows to average.
 switch dd(1).chanType
-    case 1
+    case 1 % If chip has anisotropy, keep track of the horizontal and verical channels seperately
         for i = 1:nchan
             if ismember(dd(i).ChanRow,rows) && mod(dd(i).ChanCol,2) == 0
                 indToAvgVert = [indToAvgVert,i];
@@ -25,16 +39,19 @@ switch dd(1).chanType
                 indToAvgHoriz = [indToAvgHoriz,i];
             end
         end
-    case {2,3,4}
-        for i = 1:nchan 
-           if ismember(dd(i).ChanRow,rows)
-               indToAvgVert = [indToAvgVert,i];
-           end
+    case {2,3,4} % If no anisotropy, put all indices together
+        for i = 1:nchan
+            if ismember(dd(i).ChanRow,rows)
+                indToAvgVert = [indToAvgVert,i];
+            end
         end
 end
 
+
+% Calculate anisotropy for the chip based on mean mobility in the forward
+% and backward direction
 switch dd(1).chanType
-    case 1
+    case 1 % Case where there is anisotropy in the chip
         horizForMob = mean([dd(indToAvgHoriz).forMaxMob]);
         vertForMob = mean([dd(indToAvgVert).forMaxMob]);
         
@@ -50,15 +67,23 @@ switch dd(1).chanType
             dd(i).anisotropyBack = backAni;
         end
         
-    case {2,3,4}
-        for i = 1:nchan 
+    case {2,3,4} %If no anisotropy built into chip, set to zero
+        for i = 1:nchan
             dd(i).chanType = 2;
-            dd(i).anisotropyFor = 0; % This is to indicate than all the channels are in the same direction. All values will be placed into the vertical data 
+            dd(i).anisotropyFor = 0; % This is to indicate than all the channels are in the same direction. All values will be placed into the vertical data
             dd(i).anisotropyBack = 0;
         end
 end
 
- % Calculate means and standard deviation of the means
+% Calculate means and standard deviation of the means for all statistics
+% For each metric, there should be:
+    % Forward vertical
+    % Backward vertical
+    % Forward horizontal
+    % Backward horizontal
+
+% When no anisotropy, all stats are put into the vertical variables
+
 dd_stats.mob.backVertMean = mean([dd(indToAvgVert).backMaxMob]);
 dd_stats.mob.backVertSTD = std([dd(indToAvgVert).backMaxMob])/sqrt(length(indToAvgVert));
 dd_stats.mob.forVertMean = mean([dd(indToAvgVert).forMaxMob]);

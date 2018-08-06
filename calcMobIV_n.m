@@ -1,3 +1,5 @@
+% function to calculate mobility of an n type device
+
 function [mob, VT, vg, id, fit_fun, leak] = calcMobIV_n(filePath,d_gate,W,L,de_const,vg_lims)
 
 % Provide d_gate (thickness of gate dielectric), W, L in meters

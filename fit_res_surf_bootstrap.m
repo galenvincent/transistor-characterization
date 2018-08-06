@@ -1,3 +1,8 @@
+% Galen Vincent - Summer 2018
+% Dont use this for anything. Moved past this idea.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Bootstrap surface model fits to the data points based on their standard
 % deviations. Come up with the mean model and also the mean model's error
 % for each predictor.

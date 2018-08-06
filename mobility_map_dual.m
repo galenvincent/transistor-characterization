@@ -1,3 +1,6 @@
+% Galen Vincent - Sumer 2018 
+% unimportant function
+
 % Function to create mobility maps for both the postive and negative
 % direction voltage sweeps. Based on the output from the
 % calc_dual_max_mob() function

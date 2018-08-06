@@ -1,4 +1,5 @@
-clear; clc;
+% Galen Vincent - Summer 2018 
+% plots full transistor charachterization surface based on CASCADE data
 
 % Need to set this to read in data for whatever chip number you want, given
 % a folder (see the other code to do this)

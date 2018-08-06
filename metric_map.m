@@ -1,16 +1,27 @@
-% Function to compare the different 5 metrics across each of the channels
-% of each wafer. Looking at both forward and reverse sweeps
+% Galen Vincent - Summer 2018
+% Function to compare the different 5 metrics across the channels on each
+% wafer. Also gives the ability to delete bad chanels from the chip.
+
+% Also creates a covariance matrix for the 5 metrics
 
 function dd = metric_map(dd_old)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% dd_old is a dd struct from mob_dual_analysis
+
+% returns a new dd struct with the channels deleted in the function gone
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 nchan = length(dd_old);
 
-% Delete any voltage threshold voltage values above the indicated
+% Delete any channels with vt values above the indicated cutoff
 vt_cutoff = 100;
 dd_med = dd_old(~(abs([dd_old(:).backVt])>vt_cutoff));
 dd = dd_med(~(abs([dd_med(:).forVt])>vt_cutoff));
 
+% Go through and ask the user to delete any channels they see fit
 numdeleted = 0;
-
 metric_map_help(dd);
 
 while true
@@ -39,6 +50,7 @@ end
 
 end
 
+% Function that deals with the actual plotting of the metric maps
 function metric_map_help(dd)
 nchan = length(dd);
 
@@ -73,15 +85,11 @@ for i = 1:nchan
 end
 
 % Calculate and show the correlation matrix for the different metrics
-
 Metric_Matrix = [MMback(:), MMfor(:), VTback(:), VTfor(:), Hyst(:), Cback(:), Cfor(:), Rback(:), Rfor(:)];
 figure('Name','Correlation Matrix');
 imagesc(corrcoef(Metric_Matrix));
 
-%figure;
-%myscatter3(Metric_Matrix(:,[2,5]), Metric_Matrix(:,7))
-
-
+% Find limits for each of the color maps for the metric map
 max_mob_back = max(max(MMback));
 max_mob_for = max(max(MMfor));
 max_mob = max([max_mob_back max_mob_for]);
@@ -110,6 +118,7 @@ min_r_for = min(Rfor(Rfor>0));
 max_r = max([max_r_back max_r_for]);
 min_r = min([min_r_back min_r_for]);
 
+% Find what the axis labels should be
 if isempty(strfind('ABCDEFGHIJ',dd(1).ChanLetter))
     xticks = 1:9;
     xlabels = {'K','L','M','N','P','Q','R','S','T'};
