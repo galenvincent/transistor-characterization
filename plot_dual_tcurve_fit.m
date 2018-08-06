@@ -22,6 +22,7 @@ else
         id = dd(d).id{:,1};
         
         ax2 = plotyy(vg,sqrt(abs(id)),vg,abs(id),'plot','semilogy');
+
         if dd(devNums).semiType == 'n'
             fplot(ax,@(x) sqrt(-backfit(x)),[dd(d).backVt,max(vg)],'--k','LineWidth',1);
             fplot(ax,@(x) sqrt(-forfit(x)),[dd(d).forVt,max(vg)],'--k','LineWidth',1);
@@ -33,13 +34,14 @@ else
     
     ax.FontSize = 14;
     ax.Box = 'on';
-    ax.LineWidth = 1;
+    %ax.LineWidth = 1;
     f.Position = [770 355 700 500];
     ax.Position = [0.15 0.15 0.7 0.8];
     
     xlabel('Gate Voltage (Volts)')
     ylabel(ax2(1),'(Drain Current)^{1/2} (A^{1/2})')
     ylabel(ax2(2),'Drain Current (A)')
+    %ylabel('(Drain Current)^{1/2} (A^{1/2})');
     
     lin_bounds = [0, round(max(sqrt(abs(id)))*1.1,2,'significant')];
     log_bounds = [10^floor(log10(min(abs(id)))), 10^ceil(log10(max(abs(id))))];
@@ -59,7 +61,7 @@ else
     set(ax2(2),'yticklabels',ytl);
     set(ax2(2),'FontSize',14);
     set(ax2(2),'LineWidth',1);
-    ax.Children(2).LineWidth=1;
+    %ax.Children(2).LineWidth=1;
     ax2(2).Children(1).LineWidth=1;
     
 end

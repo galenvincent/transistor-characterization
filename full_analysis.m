@@ -31,6 +31,17 @@ g172 = mob_dual_analysis('Z:\data\180717gbv2\transfer',10,3,'p');
 g174 = mob_dual_analysis('Z:\data\180717gbv4\transfer',10,3,'p');
 g175 = mob_dual_analysis('Z:\data\180717gbv5\transfer',10,3,'p');
 
+g231 = mob_dual_analysis('Z:\data\180723gbv1\transfer',10,3,'p');
+g232 = mob_dual_analysis('Z:\data\180723gbv2\transfer',10,3,'p');
+g233 = mob_dual_analysis('Z:\data\180723gbv3\transfer',10,3,'p');
+g234 = mob_dual_analysis('Z:\data\180723gbv4\transfer',10,3,'p');
+g235 = mob_dual_analysis('Z:\data\180723gbv5\transfer',10,3,'p');
+
+g81 = mob_dual_analysis('Z:\data\180801gbv1\transfer',10,3,'p');
+g83 = mob_dual_analysis('Z:\data\180801gbv3\transfer',10,3,'p');
+g84 = mob_dual_analysis('Z:\data\180801gbv4\transfer',10,3,'p');
+g85 = mob_dual_analysis('Z:\data\180801gbv5\transfer',10,3,'p');
+
 s61 = calc_avg(g61,[6,7,8,9]);
 s62 = calc_avg(g62,[6,7,8,9]);
 s64 = calc_avg(g64,[6,7,8,9]);
@@ -62,9 +73,20 @@ s172 = calc_avg(g172,[7,8,9]);
 s174 = calc_avg(g174,[7,8,9]);
 s175 = calc_avg(g175,[7,8,9]);
 
-output_stats('Z:\data\180723_fullrecalc.csv',[s61 s62 s64 s65 s131 s132 s133 s134 s135 s136 s191 s193 s195 s254 s271 s273 s274 s275 s23 s101 s102 s103 s104 s105 s171 s172 s174 s175])
+s231 = calc_avg(g231,[7,8,9]);
+s232 = calc_avg(g232,[7,8,9]);
+s233 = calc_avg(g233,[7,8,9]);
+s234 = calc_avg(g234,[7,8,9]);
+s235 = calc_avg(g235,[7,8,9]);
 
-data = read_database('Z:\DPP_database_wanisotropy.csv',[24:62]);
+s81 = calc_avg(g81,[7,8,9]);
+s83 = calc_avg(g83,[7,8,9]);
+s84 = calc_avg(g84,[7,8,9]);
+s85 = calc_avg(g85,[7,8,9]);
+
+output_stats('Z:\data\180801_data.csv',[s81 s83 s84 s85])
+
+data = read_database('Z:\DPP_database_wanisotropy.csv',[24:72]);
 
 [lms, datanew] = fit_res_surf(data,1,1,0);
 

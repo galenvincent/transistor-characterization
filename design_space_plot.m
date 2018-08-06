@@ -15,33 +15,42 @@ function design_space_plot(datatable, rows)
     ax = gca;
     hold on
     grid on
+    set(ax,'fontsize',15)
     ax.XLabel.String = 'Weight Fraction DPP';
     ax.YLabel.String = 'Blade Velocity (mm/s)';
     ax.ZLabel.String = 'Stage Temperature (C)';
     ax.Title.String = 'Design Space';
     view(60,15)
-    for i = 1:sz
-    scatter3(datatable{rows{i},1},datatable{rows{i},2},datatable{rows{i},3},...
-        40,...
+    scatter3(datatable{rows{1},1},datatable{rows{1},2},datatable{rows{1},3},...
+        200,...
         'MarkerEdgeColor','k',...
-        'MarkerFaceColor',col{i})
-    end
-    
-    legend(leg{1:sz},'Location','northwestoutside')
+        'MarkerFaceColor','b')
+    %for i = 2:sz;
+        i=2;
+        scatter3(datatable{rows{i},1},datatable{rows{i},2},datatable{rows{i},3},...
+            200,'d',...
+            'MarkerEdgeColor','k',...
+            'MarkerFaceColor','r')
+    %end
+    %legend(leg{1:sz},'Location','northwestoutside')
     
     set(gcf,'Position',[100,100,1000,700])
     
-    % figure
-    % hold on
-    % scatter3(speed,wtp,temp,'filled')
-    % for i = 1:15
-    %     text(speed(i),wtp(i),temp(i),cellstr(num2str(i)));
-    % end
-    %
-    % pairs = [3 5;5 14;14 12;12 3;2 3;2 4;4 5;2 11;11 13;13 4;11 12;13 14;12 14];
-    %
-    % for i = 1:length(pairs)
-    %    plot3(speed(pairs(i,:)),wtp(pairs(i,:)),temp(pairs(i,:)));
-    % end
+%     figure
+%     hold on
+%     scatter3(datatable{[1:17],1},datatable{[1:17],2},datatable{[1:17],3})
+%     for i = 1:17
+%         text(datatable{i,1},datatable{i,2},datatable{i,3},cellstr(num2str(i)));
+%     end
+    
+    pairs = [1 2;2 3;3 4;4 1;6 8;8 7;7 5;5 6;4 7; 1 5;2 6; 3 8];
+    pairs2 = [10 16;16 11;15 16;16 14;13 16;16 12];
+    
+    for i = 1:length(pairs)
+        plot3(datatable{pairs(i,:),'wfSemiPoly'},datatable{pairs(i,:),'BladeVel'},datatable{pairs(i,:),'StageTemp'},'k--');
+    end
+    for i = 1:length(pairs2)
+        plot3(datatable{pairs2(i,:),'wfSemiPoly'},datatable{pairs2(i,:),'BladeVel'},datatable{pairs2(i,:),'StageTemp'},'k');
+    end
     
 end

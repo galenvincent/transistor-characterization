@@ -46,27 +46,49 @@ for i = 1:length(desirability)
    data_w_des{i,'desirability'}= desirability(i);
 end
 
-% dmax = max(desirability);
-% dmin = min(desirability);
-% scale = 1/(dmax-dmin);
+data_nan = data_w_des(isnan(data_w_des{:,'desirability'}),:);
+data_good = data_w_des(~isnan(data_w_des{:,'desirability'}),:);
 
 % Plot
-figure
+figure('Position',[0,0,1000,800])
 ax = gca;
 hold on
 grid on
 ax.XLabel.String = 'Weight Fraction DPP';
 ax.YLabel.String = 'Blade Velocity (mm/s)';
 ax.ZLabel.String = 'Stage Temperature (C)';
+set(ax,'fontsize',20);
 view(60,15)
 
- scatter3(datatabin{:,'wfSemiPoly'},datatabin{:,'BladeVel'},datatabin{:,'StageTemp'},...
-     100,desirability,'filled')
-%myscatter3([datatabin{:,'wfSemiPoly'},datatabin{:,'BladeVel'}],datatabin{:,'StageTemp'},desirability)
+scatter3(data_good{:,'wfSemiPoly'},data_good{:,'BladeVel'},data_good{:,'StageTemp'},...
+    300,data_good{:,'desirability'},'filled')
+scatter3(data_nan{:,'wfSemiPoly'},data_nan{:,'BladeVel'},data_nan{:,'StageTemp'},300,'k');
 
-%colorMap = [linspace(0,1,1000)' linspace(1,0,1000)' zeros(1000,1)];
-colormap('parula');
+colormap(flipud(hot));
+%colormap(flipud(parula));
+caxis([.2 .7])
+%colormap('jet');
 colorbar;
+
+% for i = 1:length(desirability)
+%    text(datatabin{i,'wfSemiPoly'},datatabin{i,'BladeVel'},datatabin{i,'StageTemp'},num2str(i)) 
+% end
+
+pairs = [1 2;2 3;3 4;4 1;6 8;8 7;7 5;5 6;4 7; 1 5;2 6; 3 8];
+pairs2 = [10 16;16 11;15 16;16 14;13 16;16 12];
+pairs3 = [18 20; 20 22;22 19;19 18];
+% 
+% for i = 1:length(pairs)
+%     plot3(datatabin{pairs(i,:),'wfSemiPoly'},datatabin{pairs(i,:),'BladeVel'},datatabin{pairs(i,:),'StageTemp'},'k--');
+% end
+% for i = 1:length(pairs2)
+%     plot3(datatabin{pairs2(i,:),'wfSemiPoly'},datatabin{pairs2(i,:),'BladeVel'},datatabin{pairs2(i,:),'StageTemp'},'k');
+% end
+% for i = 1:length(pairs3)
+%     plot3(datatabin{pairs3(i,:),'wfSemiPoly'},datatabin{pairs3(i,:),'BladeVel'},datatabin{pairs3(i,:),'StageTemp'},'k--');
+% end
+
+view(24,13);
 
 end
 
